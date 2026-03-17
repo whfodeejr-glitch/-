@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⚡ 우리 조를 소개합니다!</title>
+    <!-- 폰트 및 스타일 라이브러리 -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Jua&family=Noto+Sans+KR:wght@300;700&display=swap');
+        
+        body {
+            font-family: 'Jua', sans-serif;
+            background: linear-gradient(-45deg, #0f172a, #1e1b4b, #312e81, #1e293b);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+            color: #f8fafc;
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .team-card {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .team-card:hover {
+            transform: translateY(-15px) scale(1.03);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        .photo-frame {
+            position: relative;
+            overflow: hidden;
+            border-radius: 2.5rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+            transition: transform 0.5s ease;
+        }
+
+        .photo-frame:hover {
+            transform: scale(1.01);
+        }
+
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .glass-nav {
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(12px);
+        }
+
+        /* 5명일 때 마지막 카드가 중앙에 오도록 처리하기 위한 클래스 */
+        .grid-center-last > div:last-child:nth-child(odd) {
+            grid-column: 1 / -1;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        @media (min-width: 1024px) {
+            .grid-center-last > div:last-child:nth-child(5) {
+                grid-column: span 1;
+                margin: 0;
+                max-width: none;
+            }
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+
+    <!-- 상단 네비게이션바 -->
+    <nav class="glass-nav sticky top-0 z-50 py-4 px-6 border-b border-white/10">
+        <div class="container mx-auto flex justify-between items-center">
+            <span class="text-2xl font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-blue-400" style="font-family: 'Black Han Sans';">TEAM SPARK</span>
+            <div class="flex space-x-6 text-xs uppercase tracking-widest opacity-80">
+                <a href="#members" class="hover:text-pink-400 transition">Members</a>
+                <a href="#" class="hover:text-pink-400 transition">Works</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 헤더 섹션 -->
+    <header class="container mx-auto px-6 pt-16 pb-12 text-center">
+        <!-- 단체 사진 영역 -->
+        <div class="max-w-5xl mx-auto mb-16 animate__animated animate__fadeIn">
+            <div class="photo-frame border-2 border-white/10 bg-slate-800">
+                <!-- 단체 사진 URL로 교체하세요 -->
+                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1400&q=80" 
+                     alt="우리 조 단체 사진" 
+                     onerror="this.src='https://via.placeholder.com/1200x600?text=OUR+TEAM+PHOTO'"
+                     class="w-full h-[350px] md:h-[550px] object-cover opacity-90 hover:opacity-100 transition-opacity">
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent flex flex-col justify-end items-center pb-10">
+                    <span class="bg-blue-500/20 text-blue-300 text-[10px] px-3 py-1 rounded-full border border-blue-500/30 mb-4 tracking-widest uppercase">The Great 5</span>
+                    <p class="text-white text-xl md:text-2xl font-bold italic animate__animated animate__fadeInUp animate__delay-1s px-4">
+                        "함께라면 무엇이든 할 수 있는 우리!"
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <h1 class="text-5xl md:text-8xl font-black mb-6 animate__animated animate__fadeInDown" style="font-family: 'Black Han Sans', sans-serif;">
+            ⚡ WE ARE <span class="text-transparent bg-clip-text bg-gradient-to-r from-pink-400 via-purple-400 to-blue-400">TEAM SPARK</span>
+        </h1>
+        <p class="text-lg md:text-xl opacity-60 max-w-2xl mx-auto leading-relaxed font-light mb-12">
+            5명의 열정이 모여 하나의 큰 스파크를 만듭니다.<br>
+            각기 다른 능력을 가진 우리 조원들을 소개합니다.
+        </p>
+        <a href="#members" class="floating inline-block group">
+            <div class="bg-gradient-to-r from-pink-600 to-blue-600 p-[1.5px] rounded-full transition-transform group-hover:scale-105">
+                <div class="bg-slate-900 px-10 py-4 rounded-full font-bold text-lg text-white">
+                    멤버 프로필 보기
+                </div>
+            </div>
+        </a>
+    </header>
+
+    <!-- 조원 소개 섹션 -->
+    <main id="members" class="container mx-auto px-6 pb-32">
+        <!-- 5명에 최적화된 그리드: 기본 1열 / 태블릿 2열 / PC 3열 -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
+            
+            <!-- 조원 1 (조장) -->
+            <div class="team-card p-10 rounded-[2.5rem] animate__animated animate__fadeInUp">
+                <div class="w-24 h-24 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-3xl mx-auto mb-8 flex items-center justify-center text-5xl shadow-xl rotate-3">
+                    🦁
+                </div>
+                <h3 class="text-2xl font-bold mb-1 text-yellow-400">황지민</h3>
+                <span class="text-white/40 text-[10px] tracking-widest font-bold uppercase">Project Captain</span>
+                <p class="mt-6 text-sm leading-relaxed opacity-70 font-light min-h-[50px]">
+                    "모두의 의견을 하나로!<br>추진력 만렙 캡틴입니다."
+                </p>
+                <div class="mt-8 flex justify-center gap-2">
+                    <span class="text-[9px] bg-white/5 border border-white/10 px-3 py-1 rounded-full uppercase tracking-tighter">#Leadership</span>
+                    <span class="text-[9px] bg-white/5 border border-white/10 px-3 py-1 rounded-full uppercase tracking-tighter">#Vision</span>
+                </div>
+            </div>
+
+            <!-- 조원 2 -->
+            <div class="team-card p-10 rounded-[2.5rem] animate__animated animate__fadeInUp animate__delay-1s">
+                <div class="w-24 h-24 bg-gradient-to-br from-pink-400 to-rose-500 rounded-3xl mx-auto mb-8 flex items-center justify-center text-5xl shadow-xl -rotate-3">
+                    🦊
+                </div>
+                <h3 class="text-2xl font-bold mb-1 text-pink-400">이서영</h3>
+                <span class="text-white/40 text-[10px] tracking-widest font-bold uppercase">UI UX Designer</span>
+                <p class="mt-6 text-sm leading-relaxed opacity-70 font-light min-h-[50px]">
+                    "세상의 모든 예쁨을 담아내요.<br>우리 팀의 비주얼 담당!"
+                </p>
+                <div class="mt-8 flex justify-center gap-2">
+                    <span class="text-[9px] bg-white/5 border border-white/10 px-3 py-1 rounded-full uppercase tracking-tighter">#Creative</span>
+                    <span class="text-[9px] bg-white/5 border border-white/10 px-3 py-1 rounded-full uppercase tracking-tighter">#Art</span>
+                </div>
+            </div>
+
+            <!-- 조원 3 -->
+            <div class="team-card p-10 rounded-[2.5rem] animate__animated animate__fadeInUp animate__delay-2s">
+                <div class="w-24 h-24 bg-gradient-to-br from-blue-400 to-indigo-500 rounded-3xl mx-auto mb-8 flex items-center justify-center text-5xl shadow-xl rotate-6">
+                    🐼
+                </div>
+                <h3 class="text-2xl font-bold mb-1 text-blue-400">임정연</h3>
+                <span class="text-white/40 text-[10px] tracking-widest font-bold uppercase">Lead Developer</span>
+                <p class="mt-6 text-sm leading-relaxed opacity-70 font-light min-h-[50px]">
+                    "오류 없는 깔끔한 세상을 꿈꿔요.<br>침착함의 대명사입니다."
+                </p>
+                <div class="mt-8 flex justify-center gap-2">
+                    <span class="text-[9px] bg-white/5 border border-white/10 px-3 py-1 rounded-full uppercase tracking-tighter">#Logic</span>
+                    <span class="text-[9px] bg-white/5 border border-white/10 px-3 py-1 rounded-full uppercase tracking-tighter">#Clean</span>
+                </div>
+            </div>
+
+            <!-- 조원 4 -->
+            <div class="team-card p-10 rounded-[2.5rem] animate__animated animate__fadeInUp">
+                <div class="w-24 h-24 bg-gradient-to-br from-purple-400 to-fuchsia-500 rounded-3xl mx-auto mb-8 flex items-center justify-center text-5xl shadow-xl -rotate-6">
+                    🐶
+                </div>
+                <h3 class="text-2xl font-bold mb-1 text-purple-400">김현경</h3>
+                <span class="text-white/40 text-[10px] tracking-widest font-bold uppercase">Mood Maker</span>
+                <p class="mt-6 text-sm leading-relaxed opacity-70 font-light min-h-[50px]">
+                    "우리 조의 웃음은 제가 책임집니다!<br>텐션 폭발 리액션 장인."
+                </p>
+                <div class="mt-8 flex justify-center gap-2">
+                    <span class="text-[9px] bg-white/5 border border-white/10 px-3 py-1 rounded-full uppercase tracking-tighter">#Happy</span>
+                    <span class="text-[9px] bg-white/5 border border-white/10 px-3 py-1 rounded-full uppercase tracking-tighter">#Energy</span>
+                </div>
+            </div>
+
+            <!-- 조원 5 (새로 추가됨) -->
+            <div class="team-card p-10 rounded-[2.5rem] animate__animated animate__fadeInUp animate__delay-1s">
+                <div class="w-24 h-24 bg-gradient-to-br from-emerald-400 to-teal-500 rounded-3xl mx-auto mb-8 flex items-center justify-center text-5xl shadow-xl rotate-12">
+                    🦉
+                </div>
+                <h3 class="text-2xl font-bold mb-1 text-emerald-400">황보명훈</h3>
+                <span class="text-white/40 text-[10px] tracking-widest font-bold uppercase">Data Analyst</span>
+                <p class="mt-6 text-sm leading-relaxed opacity-70 font-light min-h-[50px]">
+                    "데이터 속에 숨겨진 진실을 찾아요.<br>꼼꼼한 기록과 분석이 특기!"
+                </p>
+                <div class="mt-8 flex justify-center gap-2">
+                    <span class="text-[9px] bg-white/5 border border-white/10 px-3 py-1 rounded-full uppercase tracking-tighter">#Detail</span>
+                    <span class="text-[9px] bg-white/5 border border-white/10 px-3 py-1 rounded-full uppercase tracking-tighter">#Smart</span>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- 푸터 -->
+    <footer class="text-center py-20 border-t border-white/10 bg-slate-950/50">
+        <p class="opacity-40 text-xs tracking-[0.3em] font-light">
+            PREMIUM TEAM PRESENTATION © 2024
+        </p>
+        <div class="mt-6 flex justify-center space-x-4 opacity-30">
+            <div class="w-2 h-2 rounded-full bg-pink-500"></div>
+            <div class="w-2 h-2 rounded-full bg-purple-500"></div>
+            <div class="w-2 h-2 rounded-full bg-blue-500"></div>
+        </div>
+    </footer>
+
+    <script>
+        // 부드러운 스크롤 효과
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
