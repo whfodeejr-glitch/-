@@ -32,11 +32,30 @@
             100% { background-position: 0% 50%; }
         }
 
-        /* --- 통통 튀는 타이틀 스타일 --- */
+        /* --- ✨ 처음의 통통 튀는 타이틀 스타일 --- */
         .pop-title {
             font-family: 'Jua', sans-serif;
-            text-shadow: 3px 3px 0px #fff, 6px 6px 0px rgba(255, 182, 193, 0.6);
             letter-spacing: -0.02em;
+
+            /* ☁️ 하늘색 그라데이션 */
+            background: linear-gradient(135deg, #a0e9ff, #7dd3fc, #c7d2fe);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+
+            /* ✨ 맑은 빛 효과 */
+            text-shadow: 
+                0 0 8px rgba(125, 211, 252, 0.7),
+                0 0 16px rgba(165, 243, 252, 0.6),
+                2px 2px 0px rgba(255,255,255,0.9);
+
+            /* 🌊 은은한 움직임 */
+            animation: skyGlow 4s ease-in-out infinite;
+        }
+
+        @keyframes skyGlow {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
         }
 
         /* --- 인트로 관련 스타일 --- */
@@ -53,10 +72,29 @@
         }
 
         .intro-char {
-            max-width: 220px; /* 공학핑 사진 크기 살짝 조정 */
+            max-width: 220px;
             height: auto;
             filter: drop-shadow(0 15px 25px rgba(255, 182, 193, 0.5));
-            border-radius: 40px; /* 사진 모서리 둥글게 */
+            border-radius: 40px;
+        }
+
+        /* 인트로 전용 버튼 */
+        .enter-btn {
+            background: linear-gradient(135deg, #FFB6C1, #A7C7E7);
+            color: white;
+            font-family: 'Jua', sans-serif;
+            padding: 1rem 3rem;
+            border-radius: 50px;
+            font-size: 1.5rem;
+            box-shadow: 0 8px 15px rgba(255, 158, 170, 0.3);
+            transition: all 0.3s ease;
+            border: 4px solid white;
+            margin-top: 2rem;
+        }
+
+        .enter-btn:hover {
+            transform: scale(1.1) rotate(-2deg);
+            box-shadow: 0 12px 20px rgba(255, 158, 170, 0.5);
         }
 
         /* --- 메인 콘텐츠 스타일 --- */
@@ -71,6 +109,7 @@
             border: 1px solid rgba(255, 255, 255, 0.4);
             border-radius: 40px;
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
         }
 
         .team-card:hover {
@@ -127,6 +166,7 @@
         /* 폰트 스타일 통일 */
         .name-font { font-family: 'Gamja Flower', cursive; }
         .intro-font { font-family: 'Gowun Dodum', sans-serif; }
+        .jua-font { font-family: 'Jua', sans-serif; }
 
         .profile-img-container {
             width: 120px;
@@ -150,6 +190,53 @@
             transition: opacity 0.3s ease;
         }
 
+        /* --- 상세 정보 모달 스타일 --- */
+        #profile-modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 23, 42, 0.4);
+            backdrop-filter: blur(8px);
+            z-index: 10000;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        #modal-content {
+            background: white;
+            max-width: 450px;
+            width: 90%;
+            border-radius: 50px;
+            padding: 3rem;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.2);
+            border: 6px solid var(--fairy-pink);
+        }
+
+        .modal-info-item {
+            background: #f8fafc;
+            padding: 1rem;
+            border-radius: 20px;
+            margin-bottom: 0.8rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-info-label {
+            font-weight: bold;
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        .modal-info-value {
+            font-size: 1.1rem;
+            color: #475569;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body class="min-h-screen">
@@ -159,17 +246,19 @@
 
     <!-- 🌟 인트로: 공학핑 등장 -->
     <div id="intro-overlay">
-        <div class="text-center relative">
+        <div class="text-center relative flex flex-col items-center">
             <h1 class="text-7xl md:text-9xl font-black mb-12 animate__animated animate__zoomIn text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-blue-400 pop-title">
                 AI 공학핑
             </h1>
             <div id="intro-characters" class="relative h-60 flex justify-center items-center">
-                <!-- 마스코트 공학핑 이미지 적용 -->
-                <img src="공학핑.jpg" alt="공학핑" class="intro-char animate__animated animate__bounceIn">
+                <img src="공학핑.jpg" alt="공학핑" class="intro-char animate__animated animate__bounceIn">
             </div>
-            <p class="text-xl md:text-3xl text-[#5A5A5A] mt-10 animate__animated animate__fadeInUp animate__delay-3s name-font">
+            <p class="text-xl md:text-3xl text-[#5A5A5A] mt-10 animate__animated animate__fadeInUp jua-font">
                 "안녕! 나는 공학핑이야. 우리조 친구들을 소개해 줄게!"
             </p>
+            <button onclick="startMainContent()" class="enter-btn animate__animated animate__pulse animate__infinite">
+                입장하기핑! ✨
+            </button>
         </div>
     </div>
 
@@ -188,12 +277,10 @@
         <header class="container mx-auto px-6 pt-32 pb-12 text-center">
             <div class="max-w-5xl mx-auto mb-16">
                 <div class="relative overflow-hidden rounded-[3rem] shadow-2xl border-8 border-white bg-white">
-                    <!-- 📸 단체 사진 적용 -->
-                    <img src="단체사진.jpg" 
+                    <img src="단체사진.jpg" 
                          alt="AI 공학핑 단체 사진" 
                          class="w-full h-auto object-cover"
                          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                    <!-- 이미지 로드 실패 시 나타나는 박스 -->
                     <div class="hidden w-full h-64 bg-pink-50 items-center justify-center text-pink-300 flex-col">
                         <span class="text-6xl mb-4">📸</span>
                         <p class="name-font text-xl">이미지 파일들을 index.html과 같은 폴더에 넣어주세요!</p>
@@ -206,80 +293,68 @@
                 </div>
             </div>
 
-            <h1 class="text-7xl md:text-9xl font-black mb-8 pop-title text-transparent bg-clip-text bg-gradient-to-r from-pink-400 via-purple-400 to-blue-400 animate__animated animate__pulse animate__infinite">
+            <h1 class="text-7xl md:text-9xl font-black mb-8 pop-title text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-blue-400 animate__animated animate__pulse animate__infinite">
                 AI 공학핑
             </h1>
             <p class="text-xl md:text-2xl opacity-70 max-w-2xl mx-auto leading-relaxed mb-12 intro-font">
                 요정들의 축제처럼 즐겁고 에너지가 넘치는<br>
-                우리 팀원 5명을 소개합니다!
+                우리 팀원들을 클릭해서 자세히 알아보세요!<br>(카드를 클릭해 보세요✨)
             </p>
-            <a href="#members" class="floating inline-block group">
-                <div class="bg-gradient-to-r from-pink-300 to-blue-300 p-[2.5px] rounded-full">
-                    <div class="bg-white px-12 py-4 rounded-full font-bold text-lg text-[#5A5A5A] group-hover:bg-transparent group-hover:text-white transition-all name-font">
-                        멤버들 보러가기 ✨
-                    </div>
-                </div>
-            </a>
         </header>
 
         <main id="members" class="container mx-auto px-6 pb-32">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-start justify-center">
                 
                 <!-- 조원 1 (황지민) -->
-                <div class="glass-card team-card p-10 relative">
-                    <img src="https://i.ibb.co/3W6r6wK/hachuping.png" class="tiniping-hover-image" alt="하츄핑">
+                <div class="glass-card team-card p-10 relative" onclick="openModal('jimin')">
                     <div class="profile-img-container">
-                        <img src="지민.jpg" alt="황지민" class="profile-img-inner" onerror="this.src='https://via.placeholder.com/150/ffedd5?text=지민님'">
+                        <img src="지민.jpg" alt="황지민" class="profile-img-inner" onerror="this.src='https://via.placeholder.com/150/ffedd5?text=지민님'">
                     </div>
-                    <h3 class="text-4xl font-bold mb-1 text-orange-400 name-font">황지민</h3>
-                    <span class="text-gray-400 text-[10px] tracking-widest font-bold uppercase">Project Captain</span>
-                    <p class="mt-6 text-[17px] leading-relaxed text-[#5A5A5A] intro-font">"사람들과의 조화를 중요하게 여기며 책임감 있게 주변을 챙기는 <br><span class="font-bold text-orange-500">황지민</span>입니다!!"</p>
+                    <h3 class="text-4xl font-bold mb-1 text-orange-400 name-font text-center">황지민</h3>
+                    <span class="block text-center text-gray-400 text-[10px] tracking-widest font-bold uppercase">Project Captain</span>
+                    <p class="mt-6 text-[17px] leading-relaxed text-[#5A5A5A] intro-font text-center">"사람들과의 조화를 중요하게 여기며<br>책임감 있게 주변을 챙기는<br><span class="font-bold text-orange-500">황지민</span>입니다!!"</p>
                 </div>
 
-                <!-- 💖 조원 2 (이서영) -->
-                <div class="glass-card team-card p-10 relative border-2 border-pink-200" style="background: rgba(255, 240, 245, 0.6);">
+                <!-- 조원 2 (이서영) -->
+                <div class="glass-card team-card p-10 relative border-2 border-pink-200" style="background: rgba(255, 240, 245, 0.6);" onclick="openModal('seoyoung')">
                     <div class="profile-img-container">
-                        <img src="https://i.ibb.co/L5M4jP4/joaping.png" class="tiniping-hover-image" alt="조아핑">
                         <img src="Gemini_Generated_Image_sivlgjsivlgjsivl.jpg" alt="이서영" class="profile-img-inner" onerror="this.src='https://via.placeholder.com/150/fce7f3?text=서영님'">
                     </div>
-                    <h3 class="text-4xl font-bold mb-1 text-pink-400 name-font">이서영</h3>
-                    <span class="text-gray-400 text-[10px] tracking-widest font-bold uppercase">따뜻한 도전자</span>
-                    <p class="mt-6 text-[17px] leading-relaxed text-[#4A4A4A] intro-font">
-                        "<span class="text-[#64B5F6] font-bold">차가운 이성적 판단</span>과 <span class="text-[#FFB6C1] font-bold">따뜻한 사려깊음</span>을 가진 <br>도전하는 것을 좋아하는 <span class="font-bold text-pink-400">이서영</span>입니다!"
+                    <h3 class="text-4xl font-bold mb-1 text-pink-400 name-font text-center">이서영</h3>
+                    <span class="block text-center text-gray-400 text-[10px] tracking-widest font-bold uppercase">따뜻한 도전자</span>
+                    <p class="mt-6 text-[17px] leading-relaxed text-[#4A4A4A] intro-font text-center">
+                        "<span class="text-[#64B5F6] font-bold">차가운 이성적 판단</span>과<br><span class="text-[#FFB6C1] font-bold">따뜻한 사려깊음</span>을 가진<br>도전하는 것을 좋아하는<br><span class="font-bold text-pink-400">이서영</span>입니다!"
                     </p>
                 </div>
 
                 <!-- 조원 3 (임정연) -->
-                <div class="glass-card team-card p-10 relative border-2 border-blue-200">
+                <div class="glass-card team-card p-10 relative border-2 border-blue-200" onclick="openModal('jungyeon')">
                     <div class="profile-img-container">
-                        <img src="https://i.ibb.co/mF939qL/posilping.png" class="tiniping-hover-image" alt="포실핑">
-                        <img src="정연.jpg" alt="임정연" class="profile-img-inner" onerror="this.src='https://via.placeholder.com/150/dbeafe?text=정연님'">
+                        <img src="정연.jpg" alt="임정연" class="profile-img-inner" onerror="this.src='https://via.placeholder.com/150/dbeafe?text=정연님'">
                     </div>
-                    <h3 class="text-4xl font-bold mb-1 text-blue-400 name-font">임정연</h3>
-                    <span class="text-gray-400 text-[10px] tracking-widest font-bold uppercase">Lead Developer</span>
-                    <p class="mt-6 text-[17px] leading-relaxed text-[#5A5A5A] intro-font">"냉철하면서도 주변 사람들에게 친근하게 다가가며<br>배려를 베풀 줄 아는 <span class="font-bold text-blue-500">임정연</span>입니다!"</p>
+                    <h3 class="text-4xl font-bold mb-1 text-blue-400 name-font text-center">임정연</h3>
+                    <span class="block text-center text-gray-400 text-[10px] tracking-widest font-bold uppercase">Lead Developer</span>
+                    <p class="mt-6 text-[17px] leading-relaxed text-[#5A5A5A] intro-font text-center">"냉철하면서도 주변 사람들에게<br>친근하게 다가가며<br>배려를 베풀 줄 아는<br><span class="font-bold text-blue-500">임정연</span>입니다!"</p>
                 </div>
 
                 <!-- 조원 4 (김현경) -->
-                <div class="glass-card team-card p-10 relative lg:col-start-1 lg:ml-auto w-full max-w-[380px]">
+                <div class="glass-card team-card p-10 relative lg:col-start-1 lg:ml-auto w-full max-w-[380px]" onclick="openModal('hyunkyung')">
                     <div class="profile-img-container">
-                        <img src="https://i.ibb.co/7X7kX4p/shashaping.png" class="tiniping-hover-image" alt="샤샤핑">
-                        <span class="profile-img-inner text-5xl flex items-center justify-center">🐶</span>
+                        <img src="현경.jpg" alt="김현경" class="profile-img-inner" onerror="this.src='https://via.placeholder.com/150/f3e8ff?text=현경님'">
                     </div>
-                    <h3 class="text-4xl font-bold mb-1 text-purple-400 name-font">김현경</h3>
-                    <span class="text-gray-400 text-[10px] tracking-widest font-bold uppercase">Mood Maker</span>
-                    <p class="mt-6 text-[17px] leading-relaxed text-[#5A5A5A] intro-font">"우리 조의 웃음은 제가 책임집니다!<br>텐션 폭발 리액션 장인."</p>
+                    <h3 class="text-4xl font-bold mb-1 text-purple-400 name-font text-center">김현경</h3>
+                    <span class="block text-center text-gray-400 text-[10px] tracking-widest font-bold uppercase">Mood Maker</span>
+                    <p class="mt-6 text-[17px] leading-relaxed text-[#5A5A5A] intro-font text-center">"쉽게 휘둘리지 않으며 친화력이 좋아<br>편안한 분위기를 형성하는<br><span class="font-bold text-purple-500">김현경</span>입니다!"</p>
                 </div>
 
-                <!-- 💖 조원 5 (황보명훈) -->
-                <div class="glass-card team-card p-10 relative lg:col-start-2 lg:mr-auto w-full max-w-[380px] border-2 border-emerald-200">
+                <!-- 조원 5 (황보명훈) -->
+                <div class="glass-card team-card p-10 relative lg:col-start-2 lg:mr-auto w-full max-w-[380px] border-2 border-emerald-200" onclick="openModal('mh')">
                     <div class="profile-img-container">
-                        <img src="https://i.ibb.co/4T1VnS5/mallangping.png" class="tiniping-hover-image" alt="말랑핑">
-                        <img src="명훈.jpg" alt="황보명훈" class="profile-img-inner" onerror="this.src='https://via.placeholder.com/150/ecfdf5?text=명훈님'">
+                        <img src="명훈.jpg" alt="황보명훈" class="profile-img-inner" onerror="this.src='https://via.placeholder.com/150/ecfdf5?text=명훈님'">
                     </div>
-                    <h3 class="text-4xl font-bold mb-1 text-emerald-400 name-font">황보명훈</h3>
-                    <span class="text-gray-400 text-[10px] tracking-widest font-bold uppercase">Data Analyst</span>
-                    <p class="mt-6 text-[17px] leading-relaxed text-[#5A5A5A] intro-font">"처음엔 낯을 많이 가리지만 친해지면 재밌어지는 <br><span class="text-emerald-500 font-bold">황보명훈</span>입니다!"</p>
+                    <h3 class="text-4xl font-bold mb-1 text-emerald-400 name-font text-center">황보명훈</h3>
+                    <span class="block text-center text-gray-400 text-[10px] tracking-widest font-bold uppercase">Data Analyst</span>
+                    <p class="mt-6 text-[17px] leading-relaxed text-[#5A5A5A] intro-font text-center">"처음엔 낯을 많이 가리지만<br>친해지면 재밌어지는 <br><span class="text-emerald-500 font-bold">황보명훈</span>입니다!"</p>
                 </div>
             </div>
         </main>
@@ -291,12 +366,128 @@
         </footer>
     </div>
 
+    <!-- 🌟 상세 정보 모달 -->
+    <div id="profile-modal" onclick="closeModal()">
+        <div id="modal-content" class="animate__animated animate__zoomIn" onclick="event.stopPropagation()">
+            <button class="absolute top-6 right-8 text-3xl opacity-30 hover:opacity-100 transition" onclick="closeModal()">✕</button>
+            <div id="modal-image-container" class="profile-img-container scale-125 mb-10 shadow-lg"></div>
+            <h2 id="modal-name" class="text-5xl font-bold mb-2 name-font">이름</h2>
+            <p id="modal-role" class="text-[10px] text-gray-400 font-bold tracking-widest uppercase mb-8"></p>
+            
+            <div class="space-y-4 text-left intro-font">
+                <div class="modal-info-item">
+                    <span class="modal-info-label">MBTI</span>
+                    <span id="modal-mbti" class="modal-info-value" style="color: #FF9EAA;"></span>
+                </div>
+                <div class="modal-info-item">
+                    <span class="modal-info-label">나이</span>
+                    <span id="modal-age" class="modal-info-value"></span>
+                </div>
+                <div class="modal-info-item">
+                    <span class="modal-info-label">Instagram</span>
+                    <span id="modal-insta" class="modal-info-value text-blue-400"></span>
+                </div>
+                <div class="modal-info-item">
+                    <span class="modal-info-label">취미</span>
+                    <span id="modal-hobby" class="modal-info-value"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
         const introOverlay = document.getElementById('intro-overlay');
         const mainContent = document.getElementById('main-content');
         const starField = document.getElementById('star-field');
+        const modal = document.getElementById('profile-modal');
 
-        // 별 생성
+        const memberInfos = {
+            jimin: {
+                name: "황지민",
+                role: "Project Captain",
+                mbti: "ESFJ",
+                age: "20살",
+                insta: "@z.niv0_",
+                hobby: "체스 ♟️",
+                img: "지민.jpg"
+            },
+            seoyoung: {
+                name: "이서영",
+                role: "따뜻한 도전자",
+                mbti: "ISTJ",
+                age: "24살",
+                insta: "@whfod._.dl",
+                hobby: "바이올린 연주 🎻",
+                img: "Gemini_Generated_Image_sivlgjsivlgjsivl.jpg"
+            },
+            jungyeon: {
+                name: "임정연",
+                role: "Lead Developer",
+                mbti: "ESFP",
+                age: "20살",
+                insta: "@hbmh_07",
+                hobby: "운동 🏃",
+                img: "정연.jpg"
+            },
+            hyunkyung: {
+                name: "김현경",
+                role: "Mood Maker",
+                mbti: "ESTP",
+                age: "21살",
+                insta: "@1i9ht2u",
+                hobby: "피아노 🎹",
+                img: "현경.jpg"
+            },
+            mh: {
+                name: "황보명훈",
+                role: "Data Analyst",
+                mbti: "ESFP",
+                age: "20살",
+                insta: "@hbmh_07",
+                hobby: "운동 🏃",
+                img: "명훈.jpg"
+            }
+        };
+
+        function startMainContent() {
+            const char = document.querySelector('.intro-char');
+            if(char) {
+                char.classList.remove('animate__bounceIn');
+                char.classList.add('animate__backOutRight');
+            }
+            setTimeout(() => {
+                introOverlay.style.opacity = '0';
+                mainContent.style.opacity = '1';
+                document.body.style.overflow = 'auto';
+                setTimeout(() => introOverlay.style.display = 'none', 1000);
+            }, 500);
+        }
+
+        function openModal(id) {
+            const info = memberInfos[id];
+            document.getElementById('modal-name').innerText = info.name;
+            document.getElementById('modal-role').innerText = info.role;
+            document.getElementById('modal-mbti').innerText = info.mbti;
+            document.getElementById('modal-age').innerText = info.age;
+            document.getElementById('modal-insta').innerText = info.insta;
+            document.getElementById('modal-hobby').innerText = info.hobby;
+
+            const imgBox = document.getElementById('modal-image-container');
+            if (info.img.startsWith('emoji:')) {
+                imgBox.innerHTML = `<span class="text-6xl flex items-center justify-center">${info.img.split(':')[1]}</span>`;
+            } else {
+                imgBox.innerHTML = `<img src="${info.img}" class="profile-img-inner" onerror="this.src='https://via.placeholder.com/150'">`;
+            }
+
+            modal.style.display = 'flex';
+            setTimeout(() => modal.style.opacity = '1', 10);
+        }
+
+        function closeModal() {
+            modal.style.opacity = '0';
+            setTimeout(() => modal.style.display = 'none', 300);
+        }
+
         for (let i = 0; i < 80; i++) {
             const star = document.createElement('div');
             star.className = 'star';
@@ -306,23 +497,6 @@
             star.style.animationDelay = `${Math.random() * 5}s`;
             starField.appendChild(star);
         }
-
-        // 인트로 시퀀스 (공학핑 캐릭터가 오른쪽으로 사라짐)
-        setTimeout(() => {
-            const char = document.querySelector('.intro-char');
-            if(char) {
-                char.classList.remove('animate__bounceIn');
-                char.classList.add('animate__backOutRight');
-            }
-        }, 5000);
-
-        // 메인 콘텐츠 등장
-        setTimeout(() => {
-            introOverlay.style.opacity = '0';
-            mainContent.style.opacity = '1';
-            document.body.style.overflow = 'auto';
-            setTimeout(() => introOverlay.style.display = 'none', 1000);
-        }, 6500);
     </script>
 </body>
 </html>
