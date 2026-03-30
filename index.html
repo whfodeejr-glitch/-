@@ -306,7 +306,6 @@
 
     <div id="star-field" class="fixed inset-0 pointer-events-none z-0"></div>
 
-    <!-- 🌟 인트로 레이어 -->
     <div id="intro-overlay" class="fixed inset-0 z-[9999] bg-[#fff9fb] flex justify-center items-center transition-opacity duration-1000">
         <div class="text-center relative">
             <div class="welcome-box animate__animated animate__fadeInDown">
@@ -318,7 +317,7 @@
             
             <div class="relative h-60 flex justify-center items-center mb-10">
                 <div id="loading-bubble" class="speech-bubble">입장하는 중이야, 조금만 기다려줘츄! ✨</div>
-                <img id="intro-character" src="공학핑.png" alt="공학핑" class="intro-char">
+                <img id="intro-character" src="공학핑.jpeg" alt="공학핑" class="intro-char">
             </div>
 
             <div id="enter-action">
@@ -327,7 +326,6 @@
         </div>
     </div>
 
-    <!-- 🌟 메인 콘텐츠 영역 -->
     <div id="main-content" class="hidden opacity-0 transition-opacity duration-1000">
         <nav class="fixed top-0 w-full z-50 py-4 px-6 bg-white/60 backdrop-blur-md border-b-2 border-[#ffb3d9]/30">
             <div class="container mx-auto flex justify-between items-center">
@@ -339,13 +337,15 @@
             </div>
         </nav>
 
-        <!-- 🎀 [페이지 0] 선택 메뉴 -->
         <section id="page-choice" class="page-transition flex flex-col justify-center items-center min-h-screen pt-16">
             <div class="floating-island text-center w-full px-6">
-                <!-- 텍스트를 더 오른쪽으로 이동시키고 전체적으로 중앙 정렬츄~! -->
-                <div class="flex flex-col md:flex-row items-center justify-center mb-14 gap-6 md:gap-16">
-                    <img src="공학핑.png" alt="공학핑" class="w-24 h-24 md:w-44 md:h-44 object-contain menu-ping-img animate__animated animate__bounceIn">
-                    <h2 class="text-3xl md:text-5xl font-bold twinkle-text jua-font mt-4 md:mt-0 md:pl-4">보고싶은 것을 클릭해줘츄~!</h2>
+                <div class="flex flex-col md:flex-row items-center justify-center mb-14 gap-8 md:gap-16">
+                    <div class="flex-shrink-0">
+                        <img src="공학핑.jpeg" alt="공학핑" class="w-24 h-24 md:w-48 md:h-48 object-contain menu-ping-img animate__animated animate__bounceIn">
+                    </div>
+                    <div class="text-center md:text-left">
+                        <h2 class="text-2xl md:text-4xl font-bold twinkle-text jua-font mt-4 md:mt-0 whitespace-nowrap">보고싶은 것을 클릭해줘츄~!</h2>
+                    </div>
                 </div>
                 
                 <div class="flex flex-col md:flex-row gap-8 w-full max-w-5xl mx-auto">
@@ -359,13 +359,12 @@
             </div>
         </section>
 
-        <!-- 🏠 [페이지 1] 홈 -->
         <section id="page-home" class="page-transition hidden container mx-auto px-6 pt-24 pb-32">
             <header class="text-center mb-10">
                 <h1 class="text-4xl md:text-5xl font-bold mb-6 twinkle-text jua-font">1조를 소개할게츄~!</h1>
                 <div class="inline-block relative floating-island max-w-full">
                     <div class="inline-block overflow-hidden rounded-[2.5rem] shadow-lg border-[8px] border-white cursor-pointer" onclick="openImageModal(this.querySelector('img').src)">
-                        <img src="단체사진.jpeg" alt="단체사진" class="w-auto max-w-full h-auto block max-h-[50vh] transition-transform hover:scale-[1.02]">
+                        <img src="단체사진.jpeg" alt="단체사진" class="w-auto max-w-full h-auto block max-h-[50vh] transition-transform hover:scale-[1.02]">
                     </div>
                     <p class="mt-4 text-gray-500 font-medium jua-font animate-pulse">사진을 누르면 크게 볼 수 있어핑! ✨</p>
                 </div>
@@ -375,12 +374,12 @@
                 <div class="absolute -top-5 left-1/2 -translate-x-1/2 bg-white px-6 py-1 rounded-full border-2 border-tp-pink jua-font text-lg text-tp-pink-dark">팀 소개</div>
                 <h2 class="text-3xl font-bold text-tp-pink-dark jua-font mb-6">"마법처럼 빛나는 우리의 열정!"</h2>
                 <p class="text-lg text-gray-700 leading-relaxed mb-6 font-medium break-keep">
-                    안녕! 우리는 <span class="text-tp-pink-dark font-bold">AI 공학핑</span> 팀이야츄! <br><br>
+                    안녕! 우리는 <span class="text-tp-pink-dark font-bold">AI 공학핑</span> 팀이야 츄! <br><br>
                     우리는 각기 다른 색깔을 가진 5명의 요정들이 모여 <br>
                     창의적이고 혁신적인 인공지능 공학을 탐구하고 있어! <br>
-                    최고의 결과물을 만들기 위해 매일매일 노력 중이야츄~!
-                    우리 팀이 궁금하지 않니?? 더 자세히 보려면 나를 따라와츄!
-                    피리피리 매지컬~ 하츄!✨
+                    최고의 결과물을 만들기 위해 열심히 노력 중이야 츄~!
+                    우리 팀이 궁금하지 않니? 더 자세히 보려면 나를 따라와 츄!
+                    피리피리 메지컬~ 하츄!✨
                 </p>
                 <div class="flex justify-center flex-wrap gap-3">
                     <span class="px-4 py-1.5 bg-pink-50 text-tp-pink-dark rounded-full font-medium text-base border border-tp-pink">#열정가득핑</span>
@@ -389,10 +388,9 @@
             </article>
         </section>
 
-        <!-- 👥 [페이지 2] 조원 소개 -->
         <section id="page-members" class="page-transition hidden container mx-auto px-6 pt-28 pb-32">
             <header class="text-center mb-14">
-                <p class="text-xl md:text-2xl text-tp-pink-dark font-medium jua-font">사진을 눌러 프로필을 확인해봐핑! ✨</p>
+                <p class="text-xl md:text-2xl text-tp-pink-dark font-medium jua-font">사진을 눌러 프로필을 확인해봐츄! ✨</p>
             </header>
 
             <div class="flex flex-wrap justify-center gap-12 max-w-6xl mx-auto">
@@ -425,7 +423,7 @@
                         <img src="https://github.com/whfodeejr-glitch/-/raw/main/%E1%84%92%E1%85%A7%E1%86%AB%E1%84%80%E1%85%A7%E1%86%BC.png" alt="김현경">
                     </div>
                     <h4 class="text-2xl font-bold text-gray-600 jua-font mt-2">김현경</h4>
-                    <span class="nickname-tag">메이커핑 🔮</span>
+                    <span class="nickname-tag">분위기 메이커핑 🔮</span>
                 </div>
 
                 <div class="member-container" onclick="openModal('mh')">
@@ -433,7 +431,7 @@
                         <img src="https://github.com/whfodeejr-glitch/-/raw/main/%E1%84%86%E1%85%A7%E1%86%BC%E1%84%92%E1%85%AE%E1%86%AB.png" alt="황보명훈">
                     </div>
                     <h4 class="text-2xl font-bold text-gray-600 jua-font mt-2">황보명훈</h4>
-                    <span class="nickname-tag">반전핑 🌿</span>
+                    <span class="nickname-tag">반전매력핑 🌿</span>
                 </div>
             </div>
             
@@ -441,7 +439,6 @@
         </section>
     </div>
 
-    <!-- 이미지 확대 모달 -->
     <div id="image-modal" class="fixed inset-0 z-[11000] hidden bg-black/80 backdrop-blur-sm justify-center items-center opacity-0 transition-opacity duration-300" onclick="closeImageModal()">
         <button class="absolute top-6 right-6 text-white text-5xl hover:scale-110 transition cursor-pointer">&times;</button>
         <div class="max-w-[90%] max-h-[90%] flex justify-center items-center" onclick="event.stopPropagation()">
@@ -449,11 +446,10 @@
         </div>
     </div>
 
-    <!-- 상세 프로필 모달 -->
-    <div id="profile-modal" class="fixed inset-0 z-[10000] hidden bg-black/30 backdrop-blur-md transition-opacity duration-300 flex" onclick="closeModal()">
-        <div id="modal-content" class="bg-white p-6 my-auto rounded-[50px] max-w-sm w-[90%] text-center border-[8px] border-[#ffdef2] animate__animated relative" onclick="event.stopPropagation()">
-            <div class="absolute -top-4 -right-4 text-4xl">💖</div>
-            <div class="absolute -top-4 -left-4 text-4xl">💎</div>
+    <div id="profile-modal" class="fixed inset-0 z-[10000] hidden bg-black/30 backdrop-blur-md transition-opacity duration-300 flex overflow-y-auto" onclick="closeModal()">
+        <div id="modal-content" class="bg-white p-6 my-auto mx-auto rounded-[50px] max-w-sm w-[90%] text-center border-[8px] border-[#ffdef2] animate__animated relative" onclick="event.stopPropagation()">
+            <div class="absolute -top-4 -right-4 text-4xl"></div>
+            <div class="absolute -top-4 -left-4 text-4xl"></div>
             <div class="gradient-border w-32 h-32 mx-auto mb-4 scale-105">
                 <div id="modal-image-container" class="w-full h-full overflow-hidden rounded-full border-2 border-white shadow-md"></div>
             </div>
