@@ -6,453 +6,614 @@
     <title>⚡ AI 공학핑 | 우리 조를 소개할게핑!</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gaegu:wght@400;700&family=Jua&display=swap" rel="stylesheet">
     <style>
-        /* 사진의 느낌을 살린 몽환적이고 귀여운 폰트들 설정 */
-        @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Gamja+Flower&family=Gowun+Dodum&family=Jua&display=swap');
-        
         :root {
-            --fairy-pink: #FFD1DC;
-            --fairy-blue: #E6F3FF;
-            --fairy-purple: #F3F0FF;
+            /* 분홍색을 더 연하고 부드러운 톤으로 변경 */
+            --tp-pink: #ffb3d9;
+            --tp-pink-dark: #ff8cc6;
+            --tp-purple: #e2c2ff;
+            --tp-yellow: #fff9c4;
+            --tp-blue: #b3e5fc;
+            --star-cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="%23ffb3d9"><path d="M12 2l2.4 7.4h7.6l-6.2 4.5 2.4 7.4-6.2-4.5-6.2 4.5 2.4-7.4-6.2-4.5h7.6z"/></svg>');
         }
 
         body {
-            font-family: 'Gowun Dodum', sans-serif;
-            background: linear-gradient(-45deg, #E6F3FF, #F3F0FF, #FFD1DC, #E6F3FF);
-            background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
-            color: #4A4A4A;
+            font-family: 'Gaegu', cursive;
+            background: 
+                radial-gradient(circle, rgba(255, 255, 255, 0.8) 1px, transparent 1px),
+                radial-gradient(circle, rgba(255, 255, 255, 0.6) 1px, transparent 1px),
+                linear-gradient(135deg, #f3e5f5 0%, #fce4ec 50%, #f3e5f5 100%);
+            background-size: 50px 50px, 30px 30px, 100% 100%;
+            background-position: 0 0, 25px 25px, 0 0;
+            background-attachment: fixed;
             overflow-x: hidden;
             scroll-behavior: smooth;
+            min-height: 100vh;
+            color: #5D5D5D;
+            animation: bg-twinkle 5s linear infinite;
+            cursor: var(--star-cursor), auto;
         }
 
-        /* 인트로 중 스크롤 방지용 클래스 */
-        body.no-scroll {
-            overflow: hidden;
+        @keyframes bg-twinkle {
+            0% { background-position: 0 0, 25px 25px, 0 0; }
+            100% { background-position: 50px 50px, 75px 75px, 0 0; }
         }
 
-        @keyframes gradientBG {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+        button, 
+        .choice-btn, 
+        .magical-card, 
+        .tp-btn, 
+        a, 
+        .cursor-pointer,
+        .member-container,
+        [onclick] {
+            cursor: var(--star-cursor), pointer !important;
         }
 
-        /* --- ✨ 진한 하늘색 테두리로 더욱 선명해진 타이틀 스타일 --- */
+        body.no-scroll { 
+            overflow: hidden !important; 
+            height: 100vh;
+        }
+
+        .jua-font { font-family: 'Jua', sans-serif; }
+
         .pop-title {
             font-family: 'Jua', sans-serif;
             letter-spacing: -0.01em;
-            background: linear-gradient(135deg, #a0e9ff, #ffffff, #c7d2fe);
-            background-size: 200% 200%;
+            background: linear-gradient(to right, #ff9aa2, #ffcc70, #8edbf4, #f8bbd0, #9575cd);
             -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            -webkit-text-stroke: 2px #0ea5e9; 
-            filter: drop-shadow(3px 3px 0px rgba(255, 255, 255, 0.9));
-            text-shadow: 
-                4px 4px 8px rgba(14, 165, 233, 0.3),
-                0 0 20px rgba(255, 255, 255, 0.4);
-            animation: skyGlow 4s ease-in-out infinite;
+            background-clip: text;
+            color: transparent;
+            animation: rainbow 5s linear infinite;
+            background-size: 200% auto;
+            -webkit-text-stroke: 0;
+            line-height: 1.4;
+            filter: drop-shadow(0 0 8px rgba(248, 187, 208, 0.6));
+            display: inline-block;
         }
 
-        @keyframes skyGlow {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
+        @keyframes rainbow {
+            to { background-position: 200% center; }
         }
 
-        /* --- 인트로 관련 스타일 --- */
-        #intro-overlay {
-            position: fixed;
-            inset: 0;
-            background: radial-gradient(circle at center, #F3F0FF, #E6F3FF);
-            z-index: 9999;
+        .twinkle-text {
+            color: #ff8cc6; /* 연한 핑크 */
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.9), 0 0 20px rgba(255, 179, 217, 0.5);
+            animation: text-sparkle 2s ease-in-out infinite;
+        }
+
+        @keyframes text-sparkle {
+            0%, 100% { 
+                opacity: 1; 
+                transform: scale(1);
+                filter: brightness(1);
+            }
+            50% { 
+                opacity: 0.95; 
+                transform: scale(1.02); 
+                filter: brightness(1.1) drop-shadow(0 0 10px white);
+            }
+        }
+
+        .welcome-box {
+            background: white;
+            border: 3px solid var(--tp-pink);
+            border-radius: 50px;
+            padding: 8px 24px;
+            display: inline-block;
+            font-family: 'Jua', sans-serif;
+            color: var(--tp-pink-dark);
+            box-shadow: 0 4px 15px rgba(255, 179, 217, 0.2);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .member-container {
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        .member-container:hover {
+            transform: translateY(-10px);
+        }
+
+        .member-photo-circle {
+            background: white;
+            border: 8px solid white;
+            border-radius: 50%;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 10px 25px rgba(248, 187, 208, 0.3);
+            position: relative;
+            overflow: hidden;
+            width: 200px; 
+            height: 200px;
+            margin: 0 auto 15px;
             display: flex;
-            justify-content: center;
             align-items: center;
-            opacity: 1;
-            transition: opacity 1s ease-out;
+            justify-content: center;
+        }
+        .member-photo-circle img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+            border-radius: 50%;
+        }
+        .member-container:hover .member-photo-circle {
+            border-color: var(--tp-pink);
+            box-shadow: 0 15px 35px rgba(248, 187, 208, 0.5);
+            transform: rotate(3deg);
         }
 
-        /* 💃 캐릭터 춤추는 애니메이션 정의 */
+        .nickname-tag {
+            background-color: white;
+            border: 2px solid var(--tp-pink);
+            color: var(--tp-pink-dark);
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-family: 'Jua', sans-serif;
+            box-shadow: 0 4px 10px rgba(255, 179, 217, 0.15);
+            display: inline-block;
+            margin-top: 5px;
+            transition: all 0.2s;
+        }
+        .member-container:hover .nickname-tag {
+            background-color: var(--tp-pink);
+            color: white;
+            transform: scale(1.05);
+        }
+
         @keyframes char-dance {
             0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
             25% { transform: translateY(-15px) rotate(-8deg) scale(1.05); }
             50% { transform: translateY(0) rotate(0deg) scale(1); }
             75% { transform: translateY(-15px) rotate(8deg) scale(1.05); }
         }
-
+        @keyframes char-spin {
+            from { transform: rotate(0deg) scale(1); }
+            to { transform: rotate(360deg) scale(1.1); }
+        }
         .intro-char {
             max-width: 220px;
-            height: auto;
-            filter: drop-shadow(0 15px 25px rgba(255, 182, 193, 0.5));
-            border-radius: 40px;
-            /* 기본적으로 춤추는 애니메이션 적용 */
+            filter: drop-shadow(0 12px 25px rgba(248, 187, 208, 0.4));
             animation: char-dance 2.5s ease-in-out infinite;
         }
+        .char-spinning { animation: char-spin 1s ease-in-out forwards !important; }
 
-        .enter-btn {
-            background: linear-gradient(135deg, #FFB6C1, #A7C7E7);
+        .speech-bubble {
+            position: absolute;
+            top: -70px;
+            background: white;
+            border: 3px solid var(--tp-pink);
+            padding: 8px 22px;
+            border-radius: 25px;
+            font-family: 'Jua', sans-serif;
+            font-size: 1.4rem;
+            color: var(--tp-pink-dark);
+            box-shadow: 0 8px 15px rgba(248, 187, 208, 0.15);
+            opacity: 0;
+            transform: scale(0.5);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            z-index: 100;
+            white-space: nowrap;
+        }
+        .speech-bubble::after {
+            content: ''; position: absolute; bottom: -12px; left: 50%;
+            transform: translateX(-50%); border-left: 8px solid transparent;
+            border-right: 8px solid transparent; border-top: 12px solid var(--tp-pink);
+        }
+        .bubble-active { opacity: 1; transform: scale(1) translateY(-8px); }
+
+        .floating-island { animation: island-float 5s ease-in-out infinite; }
+        @keyframes island-float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(1deg); }
+        }
+
+        .gradient-border {
+            padding: 4px;
+            background: linear-gradient(45deg, #ffb3d9, #fff, #e2c2ff);
+            border-radius: 50%;
+        }
+
+        .tp-btn {
+            background: linear-gradient(180deg, #ffb3d9 0%, #ff8cc6 100%);
+            box-shadow: 0 4px 0 #f06292, 0 6px 12px rgba(240, 98, 146, 0.3);
+            transition: all 0.2s;
             color: white;
             font-family: 'Jua', sans-serif;
-            padding: 1rem 3rem;
-            border-radius: 50px;
-            font-size: 1.5rem;
-            box-shadow: 0 8px 15px rgba(255, 158, 170, 0.3);
-            transition: all 0.3s ease;
-            border: 4px solid white;
-            margin-top: 2rem;
+            border-radius: 100px;
+            border: 3px solid white;
+            z-index: 20;
         }
 
-        .enter-btn:hover {
-            transform: scale(1.1) rotate(-2deg);
-            box-shadow: 0 12px 20px rgba(255, 158, 170, 0.5);
-        }
-
-        /* --- 메인 콘텐츠 스타일 --- */
-        #main-content {
-            opacity: 0;
-            transition: opacity 1.5s ease-in;
-            display: none;
-        }
-
-        .glass-card {
-            background: rgba(255, 255, 255, 0.45);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.4);
-            border-radius: 40px;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            cursor: pointer;
-        }
-
-        .team-card:hover {
-            transform: translateY(-15px);
-            background: rgba(255, 255, 255, 0.8);
-            box-shadow: 0 20px 40px rgba(255, 182, 193, 0.2);
-        }
-
-        /* 반짝이는 별 효과 */
-        .star {
-            position: absolute;
+        .choice-btn {
             background: white;
-            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
-            opacity: 0;
-            animation: twinkle 3s infinite;
-        }
-
-        @keyframes twinkle {
-            0%, 100% { opacity: 0; transform: scale(0.5); }
-            50% { opacity: 0.8; transform: scale(1.2) rotate(20deg); }
-        }
-
-        .name-font { font-family: 'Gamja Flower', cursive; }
-        .intro-font { font-family: 'Gowun Dodum', sans-serif; }
-        .jua-font { font-family: 'Jua', sans-serif; }
-
-        .profile-img-container {
-            width: 120px;
-            height: 120px;
-            margin: 0 auto 1.5rem;
-            border-radius: 30px;
-            overflow: hidden;
-            background: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: inset 0 2px 10px rgba(0,0,0,0.05);
-            border: 4px solid white;
+            border: 5px solid var(--tp-pink);
+            padding: 1.5rem 2rem; 
+            border-radius: 35px;
+            font-family: 'Jua', sans-serif;
+            font-size: 1.4rem;
+            color: var(--tp-pink-dark);
+            box-shadow: 0 10px 20px rgba(248, 187, 208, 0.15);
+            transition: all 0.3s;
+            z-index: 20;
             position: relative;
+            width: 100%;
+        }
+        .choice-btn:hover {
+            transform: translateY(-8px) scale(1.02);
+            background: var(--tp-pink);
+            color: white;
         }
 
-        .profile-img-inner {
+        #trail-container {
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover;
-            transition: opacity 0.3s ease;
+            pointer-events: none;
+            z-index: 9999999;
+        }
+        .mouse-star {
+            position: absolute;
+            pointer-events: none;
+            animation: star-fade 0.8s ease-out forwards;
+            filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.7));
+        }
+        @keyframes star-fade {
+            0% { transform: scale(0) rotate(0deg); opacity: 1; }
+            100% { transform: scale(1.8) rotate(180deg); opacity: 0; }
+        }
+        
+        @keyframes burst-star {
+            0% { transform: translate(0, 0) scale(0); opacity: 1; }
+            100% { transform: translate(var(--tx), var(--ty)) scale(1.3) rotate(360deg); opacity: 0; }
+        }
+        .burst-star {
+            position: absolute;
+            pointer-events: none;
+            animation: burst-star 0.6s ease-out forwards;
+            filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.7));
         }
 
-        /* --- 상세 정보 모달 스타일 --- */
-        #profile-modal {
-            position: fixed;
-            inset: 0;
-            background: rgba(15, 23, 42, 0.4);
-            backdrop-filter: blur(8px);
-            z-index: 10000;
-            display: none;
-            justify-content: center;
-            align-items: center;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        #modal-content {
-            background: white;
-            max-width: 450px;
-            width: 90%;
-            border-radius: 50px;
-            padding: 3rem;
-            text-align: center;
-            position: relative;
-            box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.2);
-            border: 6px solid var(--fairy-pink);
-        }
-
-        .modal-info-item {
-            background: #f8fafc;
-            padding: 1rem;
-            border-radius: 20px;
-            margin-bottom: 0.8rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .modal-info-label {
-            font-weight: bold;
-            color: #94a3b8;
-            font-size: 0.9rem;
-        }
-
-        .modal-info-value {
-            font-size: 1.1rem;
-            color: #475569;
-            font-weight: bold;
-        }
+        /* 상세 카드 내 색상 조절 */
+        .text-tp-pink-dark { color: var(--tp-pink-dark); }
+        .bg-tp-pink-light { background-color: #fff5f8; }
+        .border-tp-pink { border-color: var(--tp-pink); }
     </style>
 </head>
-<body class="min-h-screen no-scroll">
+<body class="no-scroll">
 
-    <!-- 반짝이 배경 레이어 -->
+    <div id="trail-container"></div>
+
     <div id="star-field" class="fixed inset-0 pointer-events-none z-0"></div>
 
-    <!-- 🌟 인트로: 공학핑 등장 -->
-    <div id="intro-overlay">
-        <div class="text-center relative flex flex-col items-center">
-            <h1 class="text-7xl md:text-9xl font-black mb-12 animate__animated animate__zoomIn pop-title">
-                AI 공학핑
-            </h1>
-            <div id="intro-characters" class="relative h-60 flex justify-center items-center">
-                <!-- 💃 'char-dance' 애니메이션이 적용된 이미지 -->
-                <img src="https://github.com/whfodeejr-glitch/-/raw/main/%E1%84%80%E1%85%A9%E1%86%BC%E1%84%92%E1%85%A1%E1%86%A8%E1%84%91%E1%85%B5%E1%86%BC.png" alt="공학핑" class="intro-char">
+    <!-- 🌟 인트로 레이어 -->
+    <div id="intro-overlay" class="fixed inset-0 z-[9999] bg-[#fff9fb] flex justify-center items-center transition-opacity duration-1000">
+        <div class="text-center relative">
+            <div class="welcome-box animate__animated animate__fadeInDown">
+                🍭 마법의 세계에 온 걸 환영해 🍭
             </div>
-            <p class="text-xl md:text-3xl text-[#5A5A5A] mt-10 animate__animated animate__fadeInUp jua-font">
-                "안녕! 나는 공학핑이야. 우리조 친구들을 소개할게핑!"
-            </p>
-            <button onclick="startMainContent()" class="enter-btn animate__animated animate__pulse animate__infinite">
-                입장하기핑! ✨
-            </button>
+            <div>
+                <h1 class="text-4xl md:text-6xl font-bold mb-10 py-2 pop-title animate__animated animate__bounceIn">캐치! AI 공학핑</h1>
+            </div>
+            
+            <div class="relative h-60 flex justify-center items-center mb-10">
+                <div id="loading-bubble" class="speech-bubble">입장하는 중이야, 조금만 기다려줘츄! ✨</div>
+                <img id="intro-character" src="https://github.com/whfodeejr-glitch/-/raw/main/%E1%84%80%E1%85%A9%E1%86%BC%E1%84%92%E1%85%A1%E1%86%A8%E1%84%91%E1%85%B5%E1%86%BC.png" alt="공학핑" class="intro-char">
+            </div>
+
+            <div id="enter-action">
+                <button onclick="startLoading()" class="tp-btn px-10 py-3 text-xl animate__animated animate__pulse animate__infinite clickable-effect">입장하기핑! ✨</button>
+            </div>
         </div>
     </div>
 
-    <!-- 🌟 메인 콘텐츠 -->
-    <div id="main-content">
-        <nav class="fixed top-0 w-full z-50 py-5 px-8 bg-white/30 backdrop-blur-md border-b border-white/20">
+    <!-- 🌟 메인 콘텐츠 영역 -->
+    <div id="main-content" class="hidden opacity-0 transition-opacity duration-1000">
+        <nav class="fixed top-0 w-full z-50 py-4 px-6 bg-white/60 backdrop-blur-md border-b-2 border-[#ffb3d9]/30">
             <div class="container mx-auto flex justify-between items-center">
-                <span class="text-3xl font-bold tracking-tighter pop-title">AI 공학핑</span>
-                <div class="flex space-x-6 text-sm font-bold opacity-60">
-                    <a href="#members" class="hover:text-pink-500 transition">멤버소개</a>
-                    <a href="#" class="hover:text-pink-500 transition">포트폴리오</a>
+                <span class="text-2xl md:text-3xl font-bold py-1 pop-title cursor-pointer jua-font" onclick="showPage('choice')">캐치! AI 공학핑</span>
+                <div class="flex space-x-5 text-lg font-medium text-tp-pink-dark jua-font">
+                    <button onclick="goToIntro()" class="hover:scale-105 transition clickable-effect">처음화면</button>
+                    <button onclick="showPage('choice')" class="hover:scale-105 transition clickable-effect">메뉴</button>
                 </div>
             </div>
         </nav>
 
-        <header class="container mx-auto px-6 pt-32 pb-12 text-center">
-            <div class="max-w-5xl mx-auto mb-16">
-                <div class="relative overflow-hidden rounded-[3rem] shadow-2xl border-8 border-white bg-white">
-                    <img src="https://github.com/whfodeejr-glitch/-/raw/main/%E1%84%83%E1%85%A1%E1%86%AB%E1%84%8E%E1%85%A6%E1%84%89%E1%85%A1%E1%84%8C%E1%85%B5%E1%86%AB.png" 
-                         alt="AI 공학핑 단체 사진" 
-                         class="w-full h-auto object-cover"
-                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                    <div class="hidden w-full h-64 bg-pink-50 items-center justify-center text-pink-300 flex-col">
-                        <span class="text-6xl mb-4">📸</span>
-                        <p class="name-font text-xl">이미지 파일들을 확인해 주세요!</p>
-                    </div>
-                    <div class="absolute inset-0 bg-gradient-to-t from-white/40 via-transparent to-transparent flex flex-col justify-end items-center pb-8 md:pb-12">
-                        <p class="text-[#5A5A5A] text-2xl md:text-4xl font-bold italic drop-shadow-sm name-font">
-                            "마법처럼 빛나는 우리의 열정을 보여줄게핑!"
-                        </p>
-                    </div>
+        <!-- 🎀 [페이지 0] 선택 메뉴 -->
+        <section id="page-choice" class="page-transition flex flex-col justify-center items-center min-h-screen pt-16">
+            <div class="floating-island text-center w-full">
+                <h2 class="text-xl md:text-3xl font-bold mb-14 twinkle-text jua-font">보고싶은 것을 클릭해줘츄~!</h2>
+                <div class="flex flex-col md:flex-row gap-8 w-full max-w-5xl mx-auto px-6">
+                    <button onclick="showPage('home')" class="choice-btn flex-1 group clickable-effect">
+                        <span>우리팀 소개!</span>
+                    </button>
+                    <button onclick="showPage('members')" class="choice-btn flex-1 group clickable-effect">
+                        <span>우리팀 캐릭터 보기</span>
+                    </button>
                 </div>
             </div>
+        </section>
 
-            <h1 class="text-7xl md:text-9xl font-black mb-8 pop-title animate__animated animate__pulse animate__infinite">
-                AI 공학핑
-            </h1>
-            <p class="text-xl md:text-2xl opacity-70 max-w-2xl mx-auto leading-relaxed mb-12 intro-font">
-                AI 공학핑이 소개하는<br>
-                우리 팀원들을 클릭해서 자세히 알아보자핑!<br>(카드를 클릭해봐핑✨)
-            </p>
-        </header>
-
-        <main id="members" class="container mx-auto px-6 pb-32">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-start justify-center">
-                
-                <!-- 조원 1 (황지민) - 주황색 테두리 적용 -->
-                <div class="glass-card team-card p-10 relative border-2 border-orange-200" onclick="openModal('jimin')">
-                    <div class="profile-img-container">
-                        <img src="https://github.com/whfodeejr-glitch/-/raw/main/%E1%84%8C%E1%85%B5%E1%84%86%E1%85%B5%E1%86%AB.png" alt="황지민" class="profile-img-inner" onerror="this.src='https://via.placeholder.com/150/ffedd5?text=지민님'">
+        <!-- 🏠 [페이지 1] 홈: 단체 사진 및 조 소개 -->
+        <section id="page-home" class="page-transition hidden container mx-auto px-6 pt-24 pb-32">
+            <header class="text-center mb-10">
+                <!-- 요청하신 대로 텍스트 변경츄~! -->
+                <h1 class="text-4xl md:text-5xl font-bold mb-6 twinkle-text jua-font">1조를 소개할게츄~!</h1>
+                <div class="inline-block relative floating-island max-w-full">
+                    <div class="inline-block overflow-hidden rounded-[2.5rem] shadow-lg border-[8px] border-white cursor-pointer" onclick="openImageModal(this.querySelector('img').src)">
+                        <img src="https://github.com/whfodeejr-glitch/-/raw/main/%E1%84%83%E1%85%A1%E1%86%AB%E1%84%8E%E1%85%A6%E1%84%89%E1%85%A1%E1%84%8C%E1%85%B5%E1%86%AB.png" alt="단체사진" class="w-auto max-w-full h-auto block max-h-[50vh] transition-transform hover:scale-[1.02]">
                     </div>
-                    <h3 class="text-4xl font-bold mb-1 text-orange-400 name-font text-center">황지민</h3>
-                    <span class="block text-center text-gray-400 text-[10px] tracking-widest font-bold uppercase">조장핑</span>
-                    <p class="mt-6 text-[17px] leading-relaxed text-[#5A5A5A] intro-font text-center">
-                        "사람들과의 조화를 중요하게 여기며<br>책임감 있게 주변을 챙기는<br><span class="font-bold text-orange-500">황지민</span>입니다!!"
-                    </p>
+                    <p class="mt-4 text-gray-500 font-medium jua-font animate-pulse">사진을 누르면 크게 볼 수 있어핑! ✨</p>
+                </div>
+            </header>
+
+            <article class="max-w-2xl mx-auto text-center bg-white/70 backdrop-blur-md p-8 rounded-[40px] border-4 border-[#ffdef2] shadow-lg relative">
+                <div class="absolute -top-5 left-1/2 -translate-x-1/2 bg-white px-6 py-1 rounded-full border-2 border-tp-pink jua-font text-lg text-tp-pink-dark">팀 소개핑</div>
+                <h2 class="text-3xl font-bold text-tp-pink-dark jua-font mb-6">"마법처럼 빛나는 우리의 열정!"</h2>
+                <p class="text-lg text-gray-700 leading-relaxed mb-6 font-medium break-keep">
+                    안녕! 우리는 <span class="text-tp-pink-dark font-bold">AI 공학핑</span> 팀이야핑! <br><br>
+                    우리는 각기 다른 색깔을 가진 5명의 요정들이 모여 <br>
+                    창의적이고 혁신적인 인공지능 공학을 탐구하고 있어핑. <br>
+                    때로는 냉철하게, 때로는 따뜻하게 서로를 챙기며 <br>
+                    최고의 결과물을 만들기 위해 매일매일 노력 중이야핑! ✨
+                </p>
+                <div class="flex justify-center flex-wrap gap-3">
+                    <span class="px-4 py-1.5 bg-pink-50 text-tp-pink-dark rounded-full font-medium text-base border border-tp-pink">#열정가득핑</span>
+                    <span class="px-4 py-1.5 bg-blue-50 text-sky-400 rounded-full font-medium text-base border border-sky-100">#완벽조화핑</span>
+                </div>
+            </article>
+        </section>
+
+        <!-- 👥 [페이지 2] 조원 소개: 사진 + 이름/별명 -->
+        <section id="page-members" class="page-transition hidden container mx-auto px-6 pt-28 pb-32">
+            <header class="text-center mb-14">
+                <p class="text-xl md:text-2xl text-tp-pink-dark font-medium jua-font">사진을 눌러 프로필을 확인해봐핑! ✨</p>
+            </header>
+
+            <div class="flex flex-wrap justify-center gap-12 max-w-6xl mx-auto">
+                <div class="member-container" onclick="openModal('jimin')">
+                    <div class="member-photo-circle">
+                        <img src="https://github.com/whfodeejr-glitch/-/raw/main/%E1%84%8C%E1%85%B5%E1%84%86%E1%85%B5%E1%86%AB.png" alt="황지민">
+                    </div>
+                    <h4 class="text-2xl font-bold text-gray-600 jua-font mt-2">황지민</h4>
+                    <span class="nickname-tag">조장핑 👑</span>
                 </div>
 
-                <!-- 조원 2 (이서영) -->
-                <div class="glass-card team-card p-10 relative border-2 border-pink-200" style="background: rgba(255, 240, 245, 0.6);" onclick="openModal('seoyoung')">
-                    <div class="profile-img-container">
-                        <img src="https://github.com/whfodeejr-glitch/-/raw/main/%E1%84%89%E1%85%A5%E1%84%8B%E1%85%A7%E1%86%BC.png" alt="이서영" class="profile-img-inner" onerror="this.src='https://via.placeholder.com/150/fce7f3?text=서영님'">
+                <div class="member-container" onclick="openModal('seoyoung')">
+                    <div class="member-photo-circle">
+                        <img src="https://github.com/whfodeejr-glitch/-/raw/main/%E1%84%89%E1%85%A5%E1%84%8B%E1%85%A7%E1%86%BC.png" alt="이서영">
                     </div>
-                    <h3 class="text-4xl font-bold mb-1 text-pink-400 name-font text-center">이서영</h3>
-                    <span class="block text-center text-gray-400 text-[10px] tracking-widest font-bold uppercase">따뜻한 도전핑</span>
-                    <p class="mt-6 text-[17px] leading-relaxed text-[#4A4A4A] intro-font text-center">
-                        "<span class="text-[#64B5F6] font-bold">차가운 이성적 판단</span>과<br><span class="text-[#FFB6C1] font-bold">따뜻한 사려깊음</span>을 가진<br>도전하는 것을 좋아하는<br><span class="font-bold text-pink-400">이서영</span>입니다!"
-                    </p>
+                    <h4 class="text-2xl font-bold text-gray-600 jua-font mt-2">이서영</h4>
+                    <span class="nickname-tag">도전핑 🎀</span>
                 </div>
 
-                <!-- 조원 3 (임정연) -->
-                <div class="glass-card team-card p-10 relative border-2 border-blue-200" onclick="openModal('jungyeon')">
-                    <div class="profile-img-container">
-                        <img src="https://github.com/whfodeejr-glitch/-/raw/main/%E1%84%8C%E1%85%A5%E1%86%BC%E1%84%8B%E1%85%A7%E1%86%AB.png" alt="임정연" class="profile-img-inner" onerror="this.src='https://via.placeholder.com/150/dbeafe?text=정연님'">
+                <div class="member-container" onclick="openModal('jungyeon')">
+                    <div class="member-photo-circle">
+                        <img src="https://github.com/whfodeejr-glitch/-/raw/main/%E1%84%8C%E1%85%B5%E1%84%86%E1%85%B5%E1%86%AB.png" alt="임정연">
                     </div>
-                    <h3 class="text-4xl font-bold mb-1 text-blue-400 name-font text-center">임정연</h3>
-                    <span class="block text-center text-gray-400 text-[10px] tracking-widest font-bold uppercase">냉철한 배려핑</span>
-                    <p class="mt-6 text-[17px] leading-relaxed text-[#5A5A5A] intro-font text-center">
-                        "냉철하면서도 주변 사람들에게<br>친근하게 다가가며<br>배려를 베풀 줄 아는<br><span class="font-bold text-blue-500">임정연</span>입니다!"
-                    </p>
+                    <h4 class="text-2xl font-bold text-gray-600 jua-font mt-2">임정연</h4>
+                    <span class="nickname-tag">배려핑 ❄️</span>
                 </div>
 
-                <!-- 조원 4 (김현경) - 보라색 테두리 적용 -->
-                <div class="glass-card team-card p-10 relative lg:col-start-1 lg:ml-auto w-full max-w-[380px] border-2 border-purple-200" onclick="openModal('hyunkyung')">
-                    <div class="profile-img-container">
-                        <img src="https://github.com/whfodeejr-glitch/-/raw/main/%E1%84%92%E1%85%A7%E1%86%AB%E1%84%80%E1%85%A7%E1%86%BC.png" alt="김현경" class="profile-img-inner" onerror="this.src='https://via.placeholder.com/150/f3e8ff?text=현경님'">
+                <div class="member-container" onclick="openModal('hyunkyung')">
+                    <div class="member-photo-circle">
+                        <img src="https://github.com/whfodeejr-glitch/-/raw/main/%E1%84%92%E1%85%A7%E1%86%AB%E1%84%80%E1%85%A7%E1%86%BC.png" alt="김현경">
                     </div>
-                    <h3 class="text-4xl font-bold mb-1 text-purple-400 name-font text-center">김현경</h3>
-                    <span class="block text-center text-gray-400 text-[10px] tracking-widest font-bold uppercase">분위기 메이커핑</span>
-                    <p class="mt-6 text-[17px] leading-relaxed text-[#5A5A5A] intro-font text-center">
-                        "쉽게 휘둘리지 않으며 친화력이 좋아<br>편안한 분위기를 형성하는<br><span class="font-bold text-purple-500">김현경</span>입니다!"
-                    </p>
+                    <h4 class="text-2xl font-bold text-gray-600 jua-font mt-2">김현경</h4>
+                    <span class="nickname-tag">메이커핑 🔮</span>
                 </div>
 
-                <!-- 조원 5 (황보명훈) -->
-                <div class="glass-card team-card p-10 relative lg:col-start-2 lg:mr-auto w-full max-w-[380px] border-2 border-emerald-200" onclick="openModal('mh')">
-                    <div class="profile-img-container">
-                        <img src="https://github.com/whfodeejr-glitch/-/raw/main/%E1%84%86%E1%85%A7%E1%86%BC%E1%84%92%E1%85%AE%E1%86%AB.png" alt="황보명훈" class="profile-img-inner" onerror="this.src='https://via.placeholder.com/150/ecfdf5?text=명훈님'">
+                <div class="member-container" onclick="openModal('mh')">
+                    <div class="member-photo-circle">
+                        <img src="https://github.com/whfodeejr-glitch/-/raw/main/%E1%84%86%E1%85%A7%E1%86%BC%E1%84%92%E1%85%AE%E1%86%AB.png" alt="황보명훈">
                     </div>
-                    <h3 class="text-4xl font-bold mb-1 text-emerald-400 name-font text-center">황보명훈</h3>
-                    <span class="block text-center text-gray-400 text-[10px] tracking-widest font-bold uppercase">낯가림쟁이핑</span>
-                    <p class="mt-6 text-[17px] leading-relaxed text-[#5A5A5A] intro-font text-center">
-                        "처음엔 낯을 많이 가리지만<br>친해지면 재밌어지는 <br><span class="text-emerald-500 font-bold">황보명훈</span>입니다!"
-                    </p>
+                    <h4 class="text-2xl font-bold text-gray-600 jua-font mt-2">황보명훈</h4>
+                    <span class="nickname-tag">반전핑 🌿</span>
                 </div>
             </div>
-        </main>
-
-        <footer class="text-center py-20 border-t border-white/20 bg-white/20">
-            <p class="opacity-40 text-[10px] tracking-[0.5em] font-light intro-font">
-                AI 공학핑 팀 발표 ✨ 2026
-            </p>
-        </footer>
+            
+            <div class="py-20"></div>
+        </section>
     </div>
 
-    <!-- 🌟 상세 정보 모달 -->
-    <div id="profile-modal" onclick="closeModal()">
-        <div id="modal-content" class="animate__animated animate__zoomIn" onclick="event.stopPropagation()">
-            <button class="absolute top-6 right-8 text-3xl opacity-30 hover:opacity-100 transition" onclick="closeModal()">✕</button>
-            <div id="modal-image-container" class="profile-img-container scale-125 mb-10 shadow-lg"></div>
-            <h2 id="modal-name" class="text-5xl font-bold mb-2 name-font">이름</h2>
-            <p id="modal-role" class="text-[10px] text-gray-400 font-bold tracking-widest uppercase mb-8"></p>
+    <!-- 🌟 이미지 확대 모달 -->
+    <div id="image-modal" class="fixed inset-0 z-[11000] hidden bg-black/80 backdrop-blur-sm justify-center items-center opacity-0 transition-opacity duration-300" onclick="closeImageModal()">
+        <button class="absolute top-6 right-6 text-white text-5xl hover:scale-110 transition cursor-pointer">&times;</button>
+        <div class="max-w-[90%] max-h-[90%] flex justify-center items-center" onclick="event.stopPropagation()">
+            <img id="enlarged-image" src="" alt="확대사진" class="max-w-full max-h-[85vh] rounded-3xl shadow-2xl border-4 border-white animate__animated">
+        </div>
+    </div>
+
+    <!-- 🌟 상세 프로필 모달 -->
+    <div id="profile-modal" class="fixed inset-0 z-[10000] hidden bg-black/30 backdrop-blur-md justify-center items-center opacity-0 transition-opacity duration-300" onclick="closeModal()">
+        <div id="modal-content" class="bg-white p-6 rounded-[50px] max-w-sm w-[90%] text-center border-[8px] border-[#ffdef2] animate__animated relative" onclick="event.stopPropagation()">
+            <div class="absolute -top-4 -right-4 text-4xl">💖</div>
+            <div class="absolute -top-4 -left-4 text-4xl">💎</div>
             
-            <div class="space-y-4 text-left intro-font">
-                <div class="modal-info-item">
-                    <span class="modal-info-label">MBTI</span>
-                    <span id="modal-mbti" class="modal-info-value" style="color: #FF9EAA;"></span>
+            <div class="gradient-border w-32 h-32 mx-auto mb-4 scale-105">
+                <div id="modal-image-container" class="w-full h-full overflow-hidden rounded-full border-2 border-white shadow-md"></div>
+            </div>
+            
+            <h2 id="modal-name" class="text-4xl font-bold mb-0.5 text-tp-pink-dark jua-font">이름</h2>
+            <p id="modal-role" class="text-pink-300 font-medium uppercase mb-3 jua-font text-lg tracking-widest"></p>
+            
+            <div class="mb-5 p-4 bg-tp-pink-light rounded-[25px] border-2 border-dashed border-tp-pink">
+                <p id="modal-desc" class="text-gray-500 leading-relaxed font-medium text-lg break-keep"></p>
+            </div>
+            
+            <div class="grid grid-cols-2 gap-2 text-left jua-font text-sm">
+                <div class="flex flex-col p-2 bg-white border border-pink-50 rounded-[20px] shadow-sm">
+                    <span class="text-pink-200 text-[10px] mb-0.5">MBTI핑</span>
+                    <span id="modal-mbti" class="text-tp-pink-dark font-medium text-base"></span>
                 </div>
-                <div class="modal-info-item">
-                    <span class="modal-info-label">나이</span>
-                    <span id="modal-age" class="modal-info-value"></span>
+                <div class="flex flex-col p-2 bg-white border border-pink-50 rounded-[20px] shadow-sm">
+                    <span class="text-pink-200 text-[10px] mb-0.5">나이핑</span>
+                    <span id="modal-age" class="font-medium text-gray-400 text-base"></span>
                 </div>
-                <div class="modal-info-item">
-                    <span class="modal-info-label">인스타그램</span>
-                    <span id="modal-insta" class="modal-info-value text-blue-400"></span>
+                <div class="flex flex-col p-2 bg-white border border-pink-50 rounded-[20px] shadow-sm col-span-2">
+                    <span class="text-pink-200 text-[10px] mb-0.5">인스타그램핑</span>
+                    <span id="modal-insta" class="font-medium text-sky-300 text-base"></span>
                 </div>
-                <div class="modal-info-item">
-                    <span class="modal-info-label">취미</span>
-                    <span id="modal-hobby" class="modal-info-value"></span>
+                <div class="flex flex-col p-2 bg-white border border-pink-50 rounded-[20px] shadow-sm col-span-2">
+                    <span class="text-pink-200 text-[10px] mb-0.5">취미핑</span>
+                    <span id="modal-hobby" class="font-medium text-gray-400 text-base"></span>
                 </div>
             </div>
+            
+            <button class="tp-btn mt-6 px-6 py-2 text-lg clickable-effect" onclick="closeModal()">닫기 ✕</button>
         </div>
     </div>
 
     <script>
-        const introOverlay = document.getElementById('intro-overlay');
-        const mainContent = document.getElementById('main-content');
-        const starField = document.getElementById('star-field');
-        const modal = document.getElementById('profile-modal');
-
         const memberInfos = {
-            jimin: {
-                name: "황지민",
-                role: "조장핑",
-                mbti: "ESFJ",
-                age: "20살",
-                insta: "@z.niv0_",
-                hobby: "체스 ♟️",
-                img: "https://github.com/whfodeejr-glitch/-/raw/main/%E1%84%8C%E1%85%B5%E1%84%86%E1%85%B5%E1%86%AB.png"
-            },
-            seoyoung: {
-                name: "이서영",
-                role: "따뜻한 도전핑",
-                mbti: "ISTJ",
-                age: "24살",
-                insta: "@whfod._.dl",
-                hobby: "바이올린 연주 🎻",
-                img: "https://github.com/whfodeejr-glitch/-/raw/main/%E1%84%89%E1%85%A5%E1%84%8B%E1%85%A7%E1%86%BC.png"
-            },
-            jungyeon: {
-                name: "임정연",
-                role: "냉정한 배려핑",
-                mbti: "ISTJ",
-                age: "20살",
-                insta: "@jy_im7",
-                hobby: "요리하기 🍳",
-                img: "https://github.com/whfodeejr-glitch/-/raw/main/%E1%84%8C%E1%85%A5%E1%86%BC%E1%84%8B%E1%85%A7%E1%86%AB.png"
-            },
-            hyunkyung: {
-                name: "김현경",
-                role: "분위기 메이커핑",
-                mbti: "ESTP",
-                age: "21살",
-                insta: "@1i9ht2u",
-                hobby: "피아노 🎹",
-                img: "https://github.com/whfodeejr-glitch/-/raw/main/%E1%84%92%E1%85%A7%E1%86%AB%E1%84%80%E1%85%A7%E1%86%BC.png"
-            },
-            mh: {
-                name: "황보명훈",
-                role: "낯가림쟁이핑",
-                mbti: "ESFP",
-                age: "20살",
-                insta: "@hbmh_07",
-                hobby: "운동 🏃",
-                img: "https://github.com/whfodeejr-glitch/-/raw/main/%E1%84%86%E1%85%A7%E1%86%BC%E1%84%92%E1%85%AE%E1%86%AB.png"
-            }
+            jimin: { name: "황지민", role: "조장핑", mbti: "ESFJ", age: "20살", insta: "@z.niv0_", hobby: "체스 ♟️", img: "https://github.com/whfodeejr-glitch/-/raw/main/%E1%84%8C%E1%85%B5%E1%84%86%E1%85%B5%E1%86%AB.png", desc: "사람들과의 조화를 중요하게 여기며 책임감 있게 주변을 챙기는 황지민입니다!" },
+            seoyoung: { name: "이서영", role: "도전핑", mbti: "ISTJ", age: "24살", insta: "@whfod._.dl", hobby: "바이올린 연주 🎻", img: "https://github.com/whfodeejr-glitch/-/raw/main/%E1%84%89%E1%85%A5%E1%84%8B%E1%85%A7%E1%86%BC.png", desc: "차가운 이성적 판단과 따뜻한 사려깊음을 가진 도전하는 것을 좋아하는 이서영입니다!" },
+            jungyeon: { name: "임정연", role: "배려핑", mbti: "ISTJ", age: "20살", insta: "@jy_im7", hobby: "요리하기 🍳", img: "https://github.com/whfodeejr-glitch/-/raw/main/%E1%84%8C%E1%85%B5%E1%84%86%E1%85%B5%E1%86%AB.png", desc: "냉철하면서도 주변 사람들에게 친근하게 다가가며 배려를 베풀 줄 아는 임정연입니다!" },
+            hyunkyung: { name: "김현경", role: "메이커핑", mbti: "ESTP", age: "21살", insta: "@1i9ht2u", hobby: "피아노 🎹", img: "https://github.com/whfodeejr-glitch/-/raw/main/%E1%84%92%E1%85%A7%E1%86%AB%E1%84%80%E1%85%A7%E1%86%BC.png", desc: "쉽게 휘둘리지 않으며 친화력이 좋아 편안한 분위기를 형성하는 김현경입니다!" },
+            mh: { name: "황보명훈", role: "반전핑", mbti: "ESFP", age: "20살", insta: "@hbmh_07", hobby: "운동 🏃", img: "https://github.com/whfodeejr-glitch/-/raw/main/%E1%84%86%E1%85%A7%E1%86%BC%E1%84%92%E1%85%AE%E1%86%AB.png", desc: "처음엔 낯을 많이 가리지만 친해지면 재밌어지는 황보명훈입니다!" }
         };
 
-        function startMainContent() {
-            const char = document.querySelector('.intro-char');
-            if(char) {
-                // 기존 애니메이션을 멈추고 오른쪽으로 나가는 애니메이션 적용
-                char.style.animation = 'none';
-                char.offsetHeight; /* 강제 리플로우 */
-                char.classList.add('animate__animated', 'animate__backOutRight');
+        const colors = ['#ffb3d9', '#e2c2ff', '#b3e5fc', '#fff9c4', '#ffffff'];
+        const trailContainer = document.getElementById('trail-container');
+
+        let lastX = 0;
+        let lastY = 0;
+        
+        window.addEventListener('mousemove', (e) => {
+            const dist = Math.hypot(e.clientX - lastX, e.clientY - lastY);
+            if (dist < 12) return;
+            lastX = e.clientX;
+            lastY = e.clientY;
+            createStar(e.clientX, e.clientY, 'mouse-star');
+        });
+
+        window.addEventListener('mousedown', (e) => {
+            const isClickable = e.target.closest('.choice-btn') || e.target.closest('.magical-card') || e.target.closest('.tp-btn') || e.target.closest('.clickable-effect') || e.target.closest('.member-container') || e.target.tagName === 'BUTTON';
+            const count = isClickable ? 20 : 6;
+            for(let i=0; i<count; i++) {
+                createBurstStar(e.clientX, e.clientY);
             }
+        });
+
+        function createStar(x, y, className) {
+            const star = document.createElement('div');
+            star.className = className;
+            const color = colors[Math.floor(Math.random() * colors.length)];
+            star.innerHTML = `<svg width="22" height="22" viewBox="0 0 24 24" fill="${color}"><path d="M12 2l2.4 7.4h7.6l-6.2 4.5 2.4 7.4-6.2-4.5-6.2 4.5 2.4-7.4-6.2-4.5h7.6z"/></svg>`;
+            star.style.left = (x - 11) + 'px';
+            star.style.top = (y - 11) + 'px';
+            trailContainer.appendChild(star);
+            setTimeout(() => star.remove(), 800);
+        }
+
+        function createBurstStar(x, y) {
+            const star = document.createElement('div');
+            star.className = 'burst-star';
+            const color = colors[Math.floor(Math.random() * colors.length)];
+            const angle = Math.random() * Math.PI * 2;
+            const velocity = Math.random() * 200 + 80;
+            const tx = Math.cos(angle) * velocity;
+            const ty = Math.sin(angle) * velocity;
+            star.style.setProperty('--tx', `${tx}px`);
+            star.style.setProperty('--ty', `${ty}px`);
+            star.innerHTML = `<svg width="22" height="22" viewBox="0 0 24 24" fill="${color}"><path d="M12 2l2.4 7.4h7.6l-6.2 4.5 2.4 7.4-6.2-4.5-6.2 4.5 2.4-7.4-6.2-4.5h7.6z"/></svg>`;
+            star.style.left = (x - 11) + 'px';
+            star.style.top = (y - 11) + 'px';
+            trailContainer.appendChild(star);
+            setTimeout(() => star.remove(), 600);
+        }
+
+        function startLoading() {
+            const char = document.getElementById('intro-character');
+            const bubble = document.getElementById('loading-bubble');
+            const action = document.getElementById('enter-action');
+            action.classList.add('animate__animated', 'animate__fadeOut');
+            bubble.classList.add('bubble-active');
+            char.classList.add('char-spinning');
             setTimeout(() => {
-                introOverlay.style.opacity = '0';
-                mainContent.style.display = 'block';
+                const overlay = document.getElementById('intro-overlay');
+                overlay.style.opacity = '0';
+                document.getElementById('main-content').classList.remove('hidden');
                 setTimeout(() => {
-                    mainContent.style.opacity = '1';
-                    document.body.classList.remove('no-scroll');
-                    introOverlay.style.display = 'none';
-                }, 50);
-            }, 500);
+                    document.getElementById('main-content').style.opacity = '1';
+                    overlay.style.display = 'none';
+                    showPage('choice');
+                }, 100);
+            }, 2000);
+        }
+
+        function goToIntro() {
+            const overlay = document.getElementById('intro-overlay');
+            const mainContent = document.getElementById('main-content');
+            const char = document.getElementById('intro-character');
+            const bubble = document.getElementById('loading-bubble');
+            const action = document.getElementById('enter-action');
+            char.classList.remove('char-spinning');
+            bubble.classList.remove('bubble-active');
+            action.classList.remove('animate__fadeOut');
+            action.style.opacity = '1';
+            overlay.style.display = 'flex';
+            setTimeout(() => {
+                overlay.style.opacity = '1';
+                mainContent.style.opacity = '0';
+                setTimeout(() => {
+                    mainContent.classList.add('hidden');
+                    document.body.classList.add('no-scroll');
+                }, 1000);
+            }, 10);
+        }
+
+        function showPage(pageId) {
+            const home = document.getElementById('page-home');
+            const members = document.getElementById('page-members');
+            const choice = document.getElementById('page-choice');
+            
+            home.classList.add('hidden');
+            members.classList.add('hidden');
+            choice.classList.add('hidden');
+            
+            if(pageId === 'home') {
+                home.classList.remove('hidden');
+                document.body.classList.remove('no-scroll'); 
+            }
+            else if(pageId === 'members') {
+                members.classList.remove('hidden');
+                document.body.classList.remove('no-scroll'); 
+            }
+            else if(pageId === 'choice') {
+                choice.classList.remove('hidden');
+                document.body.classList.add('no-scroll'); 
+            }
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function openImageModal(src) {
+            const modal = document.getElementById('image-modal');
+            const img = document.getElementById('enlarged-image');
+            img.src = src;
+            modal.style.display = 'flex';
+            setTimeout(() => {
+                modal.style.opacity = '1';
+                img.classList.add('animate__zoomIn');
+            }, 10);
+            document.body.classList.add('no-scroll');
+        }
+
+        function closeImageModal() {
+            const modal = document.getElementById('image-modal');
+            const img = document.getElementById('enlarged-image');
+            modal.style.opacity = '0';
+            img.classList.remove('animate__zoomIn');
+            setTimeout(() => {
+                modal.style.display = 'none';
+                if(document.getElementById('page-choice').classList.contains('hidden')) {
+                     document.body.classList.remove('no-scroll');
+                }
+            }, 300);
         }
 
         function openModal(id) {
@@ -463,33 +624,51 @@
             document.getElementById('modal-age').innerText = info.age;
             document.getElementById('modal-insta').innerText = info.insta;
             document.getElementById('modal-hobby').innerText = info.hobby;
-
-            const imgBox = document.getElementById('modal-image-container');
-            imgBox.innerHTML = `<img src="${info.img}" class="profile-img-inner" onerror="this.src='https://via.placeholder.com/150'">`;
-
+            document.getElementById('modal-desc').innerText = info.desc; 
+            document.getElementById('modal-image-container').innerHTML = `<img src="${info.img}" class="w-full h-full object-cover" alt="${info.name}">`;
+            const modal = document.getElementById('profile-modal');
             modal.style.display = 'flex';
             setTimeout(() => modal.style.opacity = '1', 10);
+            document.getElementById('modal-content').classList.remove('animate__zoomIn');
+            void document.getElementById('modal-content').offsetWidth;
+            document.getElementById('modal-content').classList.add('animate__zoomIn');
             document.body.classList.add('no-scroll');
         }
 
         function closeModal() {
+            const modal = document.getElementById('profile-modal');
             modal.style.opacity = '0';
             setTimeout(() => {
                 modal.style.display = 'none';
-                document.body.classList.remove('no-scroll');
+                if(document.getElementById('page-choice').classList.contains('hidden')) {
+                     document.body.classList.remove('no-scroll');
+                }
             }, 300);
         }
 
-        // 별 생성 로직
-        for (let i = 0; i < 80; i++) {
+        const starField = document.getElementById('star-field');
+        for (let i = 0; i < 70; i++) {
             const star = document.createElement('div');
-            star.className = 'star';
+            star.style.position = 'absolute';
+            star.style.background = 'white';
+            star.style.width = '1.5px';
+            star.style.height = '1.5px';
+            star.style.borderRadius = '50%';
             star.style.left = `${Math.random() * 100}%`;
             star.style.top = `${Math.random() * 100}%`;
-            star.style.width = star.style.height = `${Math.random() * 5 + 2}px`;
-            star.style.animationDelay = `${Math.random() * 5}s`;
+            star.style.opacity = Math.random();
+            star.style.animation = `twinkle-star ${Math.random() * 3 + 2}s infinite`;
             starField.appendChild(star);
         }
+
+        const styleSheet = document.createElement("style");
+        styleSheet.innerText = `
+            @keyframes twinkle-star {
+                0%, 100% { opacity: 0.3; transform: scale(1); }
+                50% { opacity: 0.8; transform: scale(1.3); }
+            }
+        `;
+        document.head.appendChild(styleSheet);
     </script>
 </body>
 </html>
