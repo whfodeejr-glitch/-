@@ -317,7 +317,7 @@
             
             <div class="relative h-60 flex justify-center items-center mb-10">
                 <div id="loading-bubble" class="speech-bubble">입장하는 중이야, 조금만 기다려줘츄! ✨</div>
-                <img id="intro-character" src="https://github.com/whfodeejr-glitch/-/raw/main/%E1%84%80%E1%85%A9%E1%86%BC%E1%84%92%E1%85%A1%E1%86%A8%E1%84%91%E1%85%B5%E1%86%BC.png" alt="공학핑" class="intro-char">
+                <img id="intro-character" src="공학핑.jpeg" alt="공학핑" class="intro-char">
             </div>
 
             <div id="enter-action">
@@ -341,7 +341,7 @@
             <div class="floating-island text-center w-full px-6">
                 <div class="flex flex-col md:flex-row items-center justify-center mb-14 gap-8 md:gap-16">
                     <div class="flex-shrink-0">
-                        <img src="https://github.com/whfodeejr-glitch/-/raw/main/%E1%84%80%E1%85%A9%E1%86%BC%E1%84%92%E1%85%A1%E1%86%A8%E1%84%91%E1%85%B5%E1%86%BC.png" alt="공학핑" class="w-24 h-24 md:w-48 md:h-48 object-contain menu-ping-img animate__animated animate__bounceIn">
+                        <img src="공학핑.jpeg" alt="공학핑" class="w-24 h-24 md:w-48 md:h-48 object-contain menu-ping-img animate__animated animate__bounceIn">
                     </div>
                     <div class="text-center md:text-left">
                         <h2 class="text-2xl md:text-4xl font-bold twinkle-text jua-font mt-4 md:mt-0 whitespace-nowrap">보고싶은 것을 클릭해줘츄~!</h2>
@@ -350,10 +350,10 @@
                 
                 <div class="flex flex-col md:flex-row gap-8 w-full max-w-5xl mx-auto">
                     <button onclick="showPage('home')" class="choice-btn flex-1 group clickable-effect">
-                        <span>1팀 소개!</span>
+                        <span>우리팀 소개!</span>
                     </button>
                     <button onclick="showPage('members')" class="choice-btn flex-1 group clickable-effect">
-                        <span>1팀 캐릭터 보기</span>
+                        <span>우리팀 캐릭터 보기</span>
                     </button>
                 </div>
             </div>
@@ -361,10 +361,10 @@
 
         <section id="page-home" class="page-transition hidden container mx-auto px-6 pt-24 pb-32">
             <header class="text-center mb-10">
-                <h1 class="text-4xl md:text-5xl font-bold mb-6 twinkle-text jua-font">1팀을 소개할게츄~!</h1>
+                <h1 class="text-4xl md:text-5xl font-bold mb-6 twinkle-text jua-font">1조를 소개할게츄~!</h1>
                 <div class="inline-block relative floating-island max-w-full">
                     <div class="inline-block overflow-hidden rounded-[2.5rem] shadow-lg border-[8px] border-white cursor-pointer" onclick="openImageModal(this.querySelector('img').src)">
-                        <img src="https://github.com/whfodeejr-glitch/-/raw/main/%E1%84%83%E1%85%A1%E1%86%AB%E1%84%8E%E1%85%A6%E1%84%89%E1%85%A1%E1%84%8C%E1%85%B5%E1%86%AB.png" alt="단체사진" class="w-auto max-w-full h-auto block max-h-[50vh] transition-transform hover:scale-[1.02]">
+                        <img src="단체사진.jpeg" alt="단체사진" class="w-auto max-w-full h-auto block max-h-[50vh] transition-transform hover:scale-[1.02]">
                     </div>
                     <p class="mt-4 text-gray-500 font-medium jua-font animate-pulse">사진을 누르면 크게 볼 수 있어핑! ✨</p>
                 </div>
@@ -374,7 +374,7 @@
                 <div class="absolute -top-5 left-1/2 -translate-x-1/2 bg-white px-6 py-1 rounded-full border-2 border-tp-pink jua-font text-lg text-tp-pink-dark">팀 소개</div>
                 <h2 class="text-3xl font-bold text-tp-pink-dark jua-font mb-6">"마법처럼 빛나는 우리의 열정!"</h2>
                 <p class="text-lg text-gray-700 leading-relaxed mb-6 font-medium break-keep">
-                    안녕! 우리는 <span class="text-tp-pink-dark font-bold">AI 공학핑</span> 1팀이야 츄! <br><br>
+                    안녕! 우리는 <span class="text-tp-pink-dark font-bold">AI 공학핑</span> 팀이야 츄! <br><br>
                     우리는 각기 다른 색깔을 가진 5명의 요정들이 모여 <br>
                     창의적이고 혁신적인 인공지능 공학을 탐구하고 있어! <br>
                     최고의 결과물을 만들기 위해 열심히 노력 중이야 츄~!
@@ -388,13 +388,16 @@
             </article>
         </section>
 
+        <!-- 👥 [페이지 2] 조원 소개 (레이아웃 3개 / 2개 수정핑!) -->
         <section id="page-members" class="page-transition hidden container mx-auto px-6 pt-28 pb-32">
             <header class="text-center mb-14">
-                <p class="text-xl md:text-2xl text-tp-pink-dark font-medium jua-font">사진을 눌러 프로필을 확인해봐츄! ✨</p>
+                <p class="text-xl md:text-2xl text-tp-pink-dark font-medium jua-font">사진을 눌러 프로필을 확인해봐핑! ✨</p>
             </header>
 
-            <div class="flex flex-wrap justify-center gap-12 max-w-6xl mx-auto">
-                <div class="member-container" onclick="openModal('jimin')">
+            <!-- flex justify-center와 아이템 너비 조절로 3/2 배열 구현츄~! -->
+            <div class="flex flex-wrap justify-center gap-x-12 gap-y-16 max-w-6xl mx-auto">
+                <!-- 첫 번째 줄 (3명) -->
+                <div class="member-container w-full sm:w-[calc(50%-24px)] lg:w-[calc(33.333%-32px)]" onclick="openModal('jimin')">
                     <div class="member-photo-circle">
                         <img src="https://github.com/whfodeejr-glitch/-/raw/main/%E1%84%8C%E1%85%B5%E1%84%86%E1%85%B5%E1%86%AB.png" alt="황지민">
                     </div>
@@ -402,7 +405,7 @@
                     <span class="nickname-tag">조장핑 👑</span>
                 </div>
 
-                <div class="member-container" onclick="openModal('seoyoung')">
+                <div class="member-container w-full sm:w-[calc(50%-24px)] lg:w-[calc(33.333%-32px)]" onclick="openModal('seoyoung')">
                     <div class="member-photo-circle">
                         <img src="https://github.com/whfodeejr-glitch/-/raw/main/%E1%84%89%E1%85%A5%E1%84%8B%E1%85%A7%E1%86%BC.png" alt="이서영">
                     </div>
@@ -410,7 +413,7 @@
                     <span class="nickname-tag">도전핑 🎀</span>
                 </div>
 
-                <div class="member-container" onclick="openModal('jungyeon')">
+                <div class="member-container w-full sm:w-[calc(50%-24px)] lg:w-[calc(33.333%-32px)]" onclick="openModal('jungyeon')">
                     <div class="member-photo-circle">
                         <img src="https://github.com/whfodeejr-glitch/-/raw/main/%E1%84%8C%E1%85%A5%E1%86%BC%E1%84%8B%E1%85%A7%E1%86%AB.png" alt="임정연">
                     </div>
@@ -418,7 +421,8 @@
                     <span class="nickname-tag">배려핑 ❄️</span>
                 </div>
 
-                <div class="member-container" onclick="openModal('hyunkyung')">
+                <!-- 두 번째 줄 (2명 - justify-center에 의해 자동으로 가운데 정렬츄!) -->
+                <div class="member-container w-full sm:w-[calc(50%-24px)] lg:w-[calc(33.333%-32px)]" onclick="openModal('hyunkyung')">
                     <div class="member-photo-circle">
                         <img src="https://github.com/whfodeejr-glitch/-/raw/main/%E1%84%92%E1%85%A7%E1%86%AB%E1%84%80%E1%85%A7%E1%86%BC.png" alt="김현경">
                     </div>
@@ -426,7 +430,7 @@
                     <span class="nickname-tag">분위기 메이커핑 🔮</span>
                 </div>
 
-                <div class="member-container" onclick="openModal('mh')">
+                <div class="member-container w-full sm:w-[calc(50%-24px)] lg:w-[calc(33.333%-32px)]" onclick="openModal('mh')">
                     <div class="member-photo-circle">
                         <img src="https://github.com/whfodeejr-glitch/-/raw/main/%E1%84%86%E1%85%A7%E1%86%BC%E1%84%92%E1%85%AE%E1%86%AB.png" alt="황보명훈">
                     </div>
@@ -448,8 +452,8 @@
 
     <div id="profile-modal" class="fixed inset-0 z-[10000] hidden bg-black/30 backdrop-blur-md transition-opacity duration-300 flex overflow-y-auto" onclick="closeModal()">
         <div id="modal-content" class="bg-white p-6 my-auto mx-auto rounded-[50px] max-w-sm w-[90%] text-center border-[8px] border-[#ffdef2] animate__animated relative" onclick="event.stopPropagation()">
-            <div class="absolute -top-4 -right-4 text-4xl"></div>
-            <div class="absolute -top-4 -left-4 text-4xl"></div>
+            <div class="absolute -top-4 -right-4 text-4xl">💖</div>
+            <div class="absolute -top-4 -left-4 text-4xl">💎</div>
             <div class="gradient-border w-32 h-32 mx-auto mb-4 scale-105">
                 <div id="modal-image-container" class="w-full h-full overflow-hidden rounded-full border-2 border-white shadow-md"></div>
             </div>
@@ -460,23 +464,23 @@
             </div>
             <div class="grid grid-cols-2 gap-2 text-left jua-font">
                 <div class="flex flex-col p-2 bg-white border border-pink-50 rounded-[20px] shadow-sm">
-                    <span class="text-gray-400 text-[10px] mb-0.5">MBTI</span>
+                    <span class="text-gray-400 text-[10px] mb-0.5">MBTI핑</span>
                     <span id="modal-mbti" class="text-gray-500 font-medium text-sm"></span>
                 </div>
                 <div class="flex flex-col p-2 bg-white border border-pink-50 rounded-[20px] shadow-sm">
-                    <span class="text-gray-400 text-[10px] mb-0.5">나이</span>
+                    <span class="text-gray-400 text-[10px] mb-0.5">나이핑</span>
                     <span id="modal-age" class="text-gray-500 font-medium text-sm"></span>
                 </div>
                 <div class="flex flex-col p-2 bg-white border border-pink-50 rounded-[20px] shadow-sm col-span-2">
-                    <span class="text-gray-400 text-[10px] mb-0.5">인스타그램</span>
+                    <span class="text-gray-400 text-[10px] mb-0.5">인스타그램핑</span>
                     <span id="modal-insta" class="text-gray-500 font-medium text-sm"></span>
                 </div>
                 <div class="flex flex-col p-2 bg-white border border-pink-50 rounded-[20px] shadow-sm col-span-2">
-                    <span class="text-gray-400 text-[10px] mb-0.5">이메일</span>
+                    <span class="text-gray-400 text-[10px] mb-0.5">이메일핑</span>
                     <span id="modal-email" class="text-gray-500 font-medium text-sm break-all"></span>
                 </div>
                 <div class="flex flex-col p-2 bg-white border border-pink-50 rounded-[20px] shadow-sm col-span-2">
-                    <span class="text-gray-400 text-[10px] mb-0.5">취미</span>
+                    <span class="text-gray-400 text-[10px] mb-0.5">취미핑</span>
                     <span id="modal-hobby" class="text-gray-500 font-medium text-sm"></span>
                 </div>
             </div>
@@ -511,7 +515,7 @@
                 desc: "나는 쉽게 휘둘리지 않으며 친화력이 좋아 편안한 분위기를 형성하는 김현경이야!" 
             },
             mh: { 
-                name: "황보명훈", role: "반전핑", mbti: "ESFP", age: "20살", 
+                name: "황보명훈", role: "반전매력핑", mbti: "ESFP", age: "20살", 
                 insta: "@hbmh_07", email: "hbmh@hufs.ac.kr", hobby: "운동 🏃", 
                 img: "https://github.com/whfodeejr-glitch/-/raw/main/%E1%84%86%E1%85%A7%E1%86%BC%E1%84%92%E1%85%AE%E1%86%AB.png", 
                 desc: "나는 처음엔 낯을 많이 가리지만 친해지면 재밌어지는 황보명훈이야!" 
