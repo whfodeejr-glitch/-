@@ -341,7 +341,8 @@
             <div class="floating-island text-center w-full px-6">
                 <div class="flex flex-col md:flex-row items-center justify-center mb-14 gap-8 md:gap-16">
                     <div class="flex-shrink-0">
-                        <img src="https://github.com/whfodeejr-glitch/-/raw/main/%E1%84%80%E1%85%A9%E1%86%BC%E1%84%92%E1%85%A1%E1%86%A8%E1%84%91%E1%85%B5%E1%86%BC.png" alt="공학핑" class="w-24 h-24 md:w-48 md:h-48 object-contain menu-ping-img animate__animated animate__bounceIn">
+                        <!-- 공학핑 이미지를 더 크게 키웠어핑! (w-24 -> w-40, md:w-48 -> md:w-72) -->
+                        <img src="https://github.com/whfodeejr-glitch/-/raw/main/%E1%84%80%E1%85%A9%E1%86%BC%E1%84%92%E1%85%A1%E1%86%A8%E1%84%91%E1%85%B5%E1%86%BC.png" alt="공학핑" class="w-40 h-40 md:w-72 md:h-72 object-contain menu-ping-img animate__animated animate__bounceIn">
                     </div>
                     <div class="text-center md:text-left">
                         <h2 class="text-2xl md:text-4xl font-bold twinkle-text jua-font mt-4 md:mt-0 whitespace-nowrap">보고싶은 것을 클릭해줘츄~!</h2>
@@ -388,15 +389,12 @@
             </article>
         </section>
 
-        <!-- 👥 [페이지 2] 조원 소개 (레이아웃 3개 / 2개 수정핑!) -->
         <section id="page-members" class="page-transition hidden container mx-auto px-6 pt-28 pb-32">
             <header class="text-center mb-14">
                 <p class="text-xl md:text-2xl text-tp-pink-dark font-medium jua-font">사진을 눌러 프로필을 확인해봐핑! ✨</p>
             </header>
 
-            <!-- flex justify-center와 아이템 너비 조절로 3/2 배열 구현츄~! -->
             <div class="flex flex-wrap justify-center gap-x-12 gap-y-16 max-w-6xl mx-auto">
-                <!-- 첫 번째 줄 (3명) -->
                 <div class="member-container w-full sm:w-[calc(50%-24px)] lg:w-[calc(33.333%-32px)]" onclick="openModal('jimin')">
                     <div class="member-photo-circle">
                         <img src="https://github.com/whfodeejr-glitch/-/raw/main/%E1%84%8C%E1%85%B5%E1%84%86%E1%85%B5%E1%86%AB.png" alt="황지민">
@@ -421,7 +419,6 @@
                     <span class="nickname-tag">배려핑 ❄️</span>
                 </div>
 
-                <!-- 두 번째 줄 (2명 - justify-center에 의해 자동으로 가운데 정렬츄!) -->
                 <div class="member-container w-full sm:w-[calc(50%-24px)] lg:w-[calc(33.333%-32px)]" onclick="openModal('hyunkyung')">
                     <div class="member-photo-circle">
                         <img src="https://github.com/whfodeejr-glitch/-/raw/main/%E1%84%92%E1%85%A7%E1%86%AB%E1%84%80%E1%85%A7%E1%86%BC.png" alt="김현경">
