@@ -3,13 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>⚡ AI 공학핑 | 우리 조를 소개할게핑!</title>
+    <title>⚡ AI 공학핑 | 우리 조를 소개할게츄!</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Gaegu:wght@400;700&family=Jua&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* 분홍색을 더 연하고 부드러운 톤으로 설정 */
             --tp-pink: #ffb3d9;
             --tp-pink-dark: #ff8cc6;
             --tp-purple: #e2c2ff;
@@ -53,7 +52,6 @@
 
         body.no-scroll { 
             overflow: hidden !important; 
-            height: 100vh;
         }
 
         .jua-font { font-family: 'Jua', sans-serif; }
@@ -281,6 +279,25 @@
         .text-tp-pink-dark { color: var(--tp-pink-dark); }
         .bg-tp-pink-light { background-color: #fff5f8; }
         .border-tp-pink { border-color: var(--tp-pink); }
+
+        #profile-modal {
+            overflow-y: auto;
+            padding: 20px 0;
+        }
+        #modal-content {
+            margin: auto;
+            max-height: none;
+        }
+
+        /* 메뉴 공학핑 이미지 스타일 */
+        .menu-ping-img {
+            filter: drop-shadow(0 5px 15px rgba(248, 187, 208, 0.4));
+            animation: float-mini 3s ease-in-out infinite;
+        }
+        @keyframes float-mini {
+            0%, 100% { transform: translateY(0) rotate(-2deg); }
+            50% { transform: translateY(-8px) rotate(2deg); }
+        }
     </style>
 </head>
 <body class="no-scroll">
@@ -301,7 +318,7 @@
             
             <div class="relative h-60 flex justify-center items-center mb-10">
                 <div id="loading-bubble" class="speech-bubble">입장하는 중이야, 조금만 기다려줘츄! ✨</div>
-                <img id="intro-character" src="공학피NG.jpeg" alt="공학핑" class="intro-char">
+                <img id="intro-character" src="공학핑.jpeg" alt="공학핑" class="intro-char">
             </div>
 
             <div id="enter-action">
@@ -324,9 +341,14 @@
 
         <!-- 🎀 [페이지 0] 선택 메뉴 -->
         <section id="page-choice" class="page-transition flex flex-col justify-center items-center min-h-screen pt-16">
-            <div class="floating-island text-center w-full">
-                <h2 class="text-xl md:text-3xl font-bold mb-14 twinkle-text jua-font">보고싶은 것을 클릭해줘츄~!</h2>
-                <div class="flex flex-col md:flex-row gap-8 w-full max-w-5xl mx-auto px-6">
+            <div class="floating-island text-center w-full px-6">
+                <!-- 텍스트를 더 오른쪽으로 이동시키고 전체적으로 중앙 정렬츄~! -->
+                <div class="flex flex-col md:flex-row items-center justify-center mb-14 gap-6 md:gap-16">
+                    <img src="공학핑.jpeg" alt="공학핑" class="w-24 h-24 md:w-44 md:h-44 object-contain menu-ping-img animate__animated animate__bounceIn">
+                    <h2 class="text-3xl md:text-5xl font-bold twinkle-text jua-font mt-4 md:mt-0 md:pl-4">보고싶은 것을 클릭해줘츄~!</h2>
+                </div>
+                
+                <div class="flex flex-col md:flex-row gap-8 w-full max-w-5xl mx-auto">
                     <button onclick="showPage('home')" class="choice-btn flex-1 group clickable-effect">
                         <span>우리팀 소개!</span>
                     </button>
@@ -353,11 +375,12 @@
                 <div class="absolute -top-5 left-1/2 -translate-x-1/2 bg-white px-6 py-1 rounded-full border-2 border-tp-pink jua-font text-lg text-tp-pink-dark">팀 소개</div>
                 <h2 class="text-3xl font-bold text-tp-pink-dark jua-font mb-6">"마법처럼 빛나는 우리의 열정!"</h2>
                 <p class="text-lg text-gray-700 leading-relaxed mb-6 font-medium break-keep">
-                    안녕! 우리는 <span class="text-tp-pink-dark font-bold">AI 공학핑</span> 팀이야핑! <br><br>
+                    안녕! 우리는 <span class="text-tp-pink-dark font-bold">AI 공학핑</span> 팀이야츄! <br><br>
                     우리는 각기 다른 색깔을 가진 5명의 요정들이 모여 <br>
-                    창의적이고 혁신적인 인공지능 공학을 탐구하고 있어핑. <br>
-                    때로는 냉철하게, 때로는 따뜻하게 서로를 챙기며 <br>
-                    최고의 결과물을 만들기 위해 매일매일 노력 중이야핑! ✨
+                    창의적이고 혁신적인 인공지능 공학을 탐구하고 있어! <br>
+                    최고의 결과물을 만들기 위해 매일매일 노력 중이야츄~!
+                    우리 팀이 궁금하지 않니?? 더 자세히 보려면 나를 따라와츄!
+                    피리피리 매지컬~ 하츄!✨
                 </p>
                 <div class="flex justify-center flex-wrap gap-3">
                     <span class="px-4 py-1.5 bg-pink-50 text-tp-pink-dark rounded-full font-medium text-base border border-tp-pink">#열정가득핑</span>
@@ -373,7 +396,6 @@
             </header>
 
             <div class="flex flex-wrap justify-center gap-12 max-w-6xl mx-auto">
-                <!-- 지민 -->
                 <div class="member-container" onclick="openModal('jimin')">
                     <div class="member-photo-circle">
                         <img src="https://github.com/whfodeejr-glitch/-/raw/main/%E1%84%8C%E1%85%B5%E1%84%86%E1%85%B5%E1%86%AB.png" alt="황지민">
@@ -382,7 +404,6 @@
                     <span class="nickname-tag">조장핑 👑</span>
                 </div>
 
-                <!-- 서영 -->
                 <div class="member-container" onclick="openModal('seoyoung')">
                     <div class="member-photo-circle">
                         <img src="https://github.com/whfodeejr-glitch/-/raw/main/%E1%84%89%E1%85%A5%E1%84%8B%E1%85%A7%E1%86%BC.png" alt="이서영">
@@ -391,7 +412,6 @@
                     <span class="nickname-tag">도전핑 🎀</span>
                 </div>
 
-                <!-- 정연 (이미지 업데이트됨) -->
                 <div class="member-container" onclick="openModal('jungyeon')">
                     <div class="member-photo-circle">
                         <img src="정연.jpg" alt="임정연">
@@ -400,7 +420,6 @@
                     <span class="nickname-tag">배려핑 ❄️</span>
                 </div>
 
-                <!-- 현경 -->
                 <div class="member-container" onclick="openModal('hyunkyung')">
                     <div class="member-photo-circle">
                         <img src="https://github.com/whfodeejr-glitch/-/raw/main/%E1%84%92%E1%85%A7%E1%86%AB%E1%84%80%E1%85%A7%E1%86%BC.png" alt="김현경">
@@ -409,7 +428,6 @@
                     <span class="nickname-tag">메이커핑 🔮</span>
                 </div>
 
-                <!-- 명훈 -->
                 <div class="member-container" onclick="openModal('mh')">
                     <div class="member-photo-circle">
                         <img src="https://github.com/whfodeejr-glitch/-/raw/main/%E1%84%86%E1%85%A7%E1%86%BC%E1%84%92%E1%85%AE%E1%86%AB.png" alt="황보명훈">
@@ -432,8 +450,8 @@
     </div>
 
     <!-- 상세 프로필 모달 -->
-    <div id="profile-modal" class="fixed inset-0 z-[10000] hidden bg-black/30 backdrop-blur-md justify-center items-center opacity-0 transition-opacity duration-300" onclick="closeModal()">
-        <div id="modal-content" class="bg-white p-6 rounded-[50px] max-w-sm w-[90%] text-center border-[8px] border-[#ffdef2] animate__animated relative" onclick="event.stopPropagation()">
+    <div id="profile-modal" class="fixed inset-0 z-[10000] hidden bg-black/30 backdrop-blur-md transition-opacity duration-300 flex" onclick="closeModal()">
+        <div id="modal-content" class="bg-white p-6 my-auto rounded-[50px] max-w-sm w-[90%] text-center border-[8px] border-[#ffdef2] animate__animated relative" onclick="event.stopPropagation()">
             <div class="absolute -top-4 -right-4 text-4xl">💖</div>
             <div class="absolute -top-4 -left-4 text-4xl">💎</div>
             <div class="gradient-border w-32 h-32 mx-auto mb-4 scale-105">
@@ -444,22 +462,26 @@
             <div class="mb-5 p-4 bg-tp-pink-light rounded-[25px] border-2 border-dashed border-tp-pink">
                 <p id="modal-desc" class="text-gray-500 leading-relaxed font-medium text-lg break-keep"></p>
             </div>
-            <div class="grid grid-cols-2 gap-2 text-left jua-font text-sm">
+            <div class="grid grid-cols-2 gap-2 text-left jua-font">
                 <div class="flex flex-col p-2 bg-white border border-pink-50 rounded-[20px] shadow-sm">
-                    <span class="text-pink-200 text-[10px] mb-0.5">MBTI핑</span>
-                    <span id="modal-mbti" class="text-tp-pink-dark font-medium text-base"></span>
+                    <span class="text-gray-400 text-[10px] mb-0.5">MBTI</span>
+                    <span id="modal-mbti" class="text-gray-500 font-medium text-sm"></span>
                 </div>
                 <div class="flex flex-col p-2 bg-white border border-pink-50 rounded-[20px] shadow-sm">
-                    <span class="text-pink-200 text-[10px] mb-0.5">나이핑</span>
-                    <span id="modal-age" class="font-medium text-gray-400 text-base"></span>
+                    <span class="text-gray-400 text-[10px] mb-0.5">나이</span>
+                    <span id="modal-age" class="text-gray-500 font-medium text-sm"></span>
                 </div>
                 <div class="flex flex-col p-2 bg-white border border-pink-50 rounded-[20px] shadow-sm col-span-2">
-                    <span class="text-pink-200 text-[10px] mb-0.5">인스타그램핑</span>
-                    <span id="modal-insta" class="font-medium text-sky-300 text-base"></span>
+                    <span class="text-gray-400 text-[10px] mb-0.5">인스타그램</span>
+                    <span id="modal-insta" class="text-gray-500 font-medium text-sm"></span>
                 </div>
                 <div class="flex flex-col p-2 bg-white border border-pink-50 rounded-[20px] shadow-sm col-span-2">
-                    <span class="text-pink-200 text-[10px] mb-0.5">취미핑</span>
-                    <span id="modal-hobby" class="font-medium text-gray-400 text-base"></span>
+                    <span class="text-gray-400 text-[10px] mb-0.5">이메일</span>
+                    <span id="modal-email" class="text-gray-500 font-medium text-sm break-all"></span>
+                </div>
+                <div class="flex flex-col p-2 bg-white border border-pink-50 rounded-[20px] shadow-sm col-span-2">
+                    <span class="text-gray-400 text-[10px] mb-0.5">취미</span>
+                    <span id="modal-hobby" class="text-gray-500 font-medium text-sm"></span>
                 </div>
             </div>
             <button class="tp-btn mt-6 px-6 py-2 text-lg clickable-effect" onclick="closeModal()">닫기 ✕</button>
@@ -468,11 +490,36 @@
 
     <script>
         const memberInfos = {
-            jimin: { name: "황지민", role: "조장핑", mbti: "ESFJ", age: "20살", insta: "@z.niv0_", hobby: "체스 ♟️", img: "https://github.com/whfodeejr-glitch/-/raw/main/%E1%84%8C%E1%85%B5%E1%84%86%E1%85%B5%E1%86%AB.png", desc: "사람들과의 조화를 중요하게 여기며 책임감 있게 주변을 챙기는 황지민입니다!" },
-            seoyoung: { name: "이서영", role: "도전핑", mbti: "ISTJ", age: "24살", insta: "@whfod._.dl", hobby: "바이올린 연주 🎻", img: "https://github.com/whfodeejr-glitch/-/raw/main/%E1%84%89%E1%85%A5%E1%84%8B%E1%85%A7%E1%86%BC.png", desc: "차가운 이성적 판단과 따뜻한 사려깊음을 가진 도전하는 것을 좋아하는 이서영입니다!" },
-            jungyeon: { name: "임정연", role: "배려핑", mbti: "ISTJ", age: "20살", insta: "@jy_im7", hobby: "요리하기 🍳", img: "정연.jpg", desc: "냉철하면서도 주변 사람들에게 친근하게 다가가며 배려를 베풀 줄 아는 임정연입니다!" },
-            hyunkyung: { name: "김현경", role: "메이커핑", mbti: "ESTP", age: "21살", insta: "@1i9ht2u", hobby: "피아노 🎹", img: "https://github.com/whfodeejr-glitch/-/raw/main/%E1%84%92%E1%85%A7%E1%86%AB%E1%84%80%E1%85%A7%E1%86%BC.png", desc: "쉽게 휘둘리지 않으며 친화력이 좋아 편안한 분위기를 형성하는 김현경입니다!" },
-            mh: { name: "황보명훈", role: "반전핑", mbti: "ESFP", age: "20살", insta: "@hbmh_07", hobby: "운동 🏃", img: "https://github.com/whfodeejr-glitch/-/raw/main/%E1%84%86%E1%85%A7%E1%86%BC%E1%84%92%E1%85%AE%E1%86%AB.png", desc: "처음엔 낯을 많이 가리지만 친해지면 재밌어지는 황보명훈입니다!" }
+            jimin: { 
+                name: "황지민", role: "조장핑", mbti: "ESFJ", age: "20살", 
+                insta: "@z.niv0_", email: "zzxminy@hufs.ac.kr", hobby: "체스 ♟️", 
+                img: "https://github.com/whfodeejr-glitch/-/raw/main/%E1%84%8C%E1%85%B5%E1%84%86%E1%85%B5%E1%86%AB.png", 
+                desc: "나는 사람들과의 조화를 중요하게 여기며 책임감 있게 주변을 챙기는 황지민이야!" 
+            },
+            seoyoung: { 
+                name: "이서영", role: "도전핑", mbti: "ISTJ", age: "24살", 
+                insta: "@whfod._.dl", email: "whfodeejr@hufs.ac.kr", hobby: "바이올린 연주 🎻", 
+                img: "https://github.com/whfodeejr-glitch/-/raw/main/%E1%84%89%E1%85%A5%E1%84%8B%E1%85%A7%E1%86%BC.png", 
+                desc: "나는 차가운 이성적 판단과 따뜻한 사려깊음을 가진 도전하는 것을 좋아하는 이서영이야!" 
+            },
+            jungyeon: { 
+                name: "임정연", role: "배려핑", mbti: "ISTJ", age: "20살", 
+                insta: "@jy_im7", email: "aawjddus070830@hufs.ac.kr", hobby: "요리하기 🍳", 
+                img: "정연.jpg", 
+                desc: "나는 냉철하면서도 주변 사람들에게 친근하게 다가가며 배려를 베풀 줄 아는 임정연이야!" 
+            },
+            hyunkyung: { 
+                name: "김현경", role: "분위기 메이커핑", mbti: "ESTP", age: "21살", 
+                insta: "@1i9ht2u", email: "1i9ht2u@hufs.ac.kr", hobby: "피아노 🎹", 
+                img: "https://github.com/whfodeejr-glitch/-/raw/main/%E1%84%92%E1%85%A7%E1%86%AB%E1%84%80%E1%85%A7%E1%86%BC.png", 
+                desc: "나는 쉽게 휘둘리지 않으며 친화력이 좋아 편안한 분위기를 형성하는 김현경이야!" 
+            },
+            mh: { 
+                name: "황보명훈", role: "반전핑", mbti: "ESFP", age: "20살", 
+                insta: "@hbmh_07", email: "hbmh@hufs.ac.kr", hobby: "운동 🏃", 
+                img: "https://github.com/whfodeejr-glitch/-/raw/main/%E1%84%86%E1%85%A7%E1%86%BC%E1%84%92%E1%85%AE%E1%86%AB.png", 
+                desc: "나는 처음엔 낯을 많이 가리지만 친해지면 재밌어지는 황보명훈이야!" 
+            }
         };
 
         const colors = ['#ffb3d9', '#e2c2ff', '#b3e5fc', '#fff9c4', '#ffffff'];
@@ -541,7 +588,8 @@
             setTimeout(() => {
                 overlay.style.opacity = '1'; mainContent.style.opacity = '0';
                 setTimeout(() => {
-                    mainContent.classList.add('hidden'); document.body.classList.add('no-scroll');
+                    mainContent.classList.add('hidden'); 
+                    document.body.classList.add('no-scroll');
                 }, 1000);
             }, 10);
         }
@@ -550,10 +598,22 @@
             const home = document.getElementById('page-home');
             const members = document.getElementById('page-members');
             const choice = document.getElementById('page-choice');
-            home.classList.add('hidden'); members.classList.add('hidden'); choice.classList.add('hidden');
-            if(pageId === 'home') { home.classList.remove('hidden'); document.body.classList.remove('no-scroll'); }
-            else if(pageId === 'members') { members.classList.remove('hidden'); document.body.classList.remove('no-scroll'); }
-            else if(pageId === 'choice') { choice.classList.remove('hidden'); document.body.classList.add('no-scroll'); }
+            home.classList.add('hidden'); members.classList.add('hidden'); choice.classList.remove('hidden'); 
+            
+            if(pageId === 'home') { 
+                home.classList.remove('hidden'); 
+                choice.classList.add('hidden');
+                document.body.classList.remove('no-scroll'); 
+            }
+            else if(pageId === 'members') { 
+                members.classList.remove('hidden'); 
+                choice.classList.add('hidden');
+                document.body.classList.remove('no-scroll'); 
+            }
+            else if(pageId === 'choice') { 
+                choice.classList.remove('hidden'); 
+                document.body.classList.add('no-scroll'); 
+            }
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
@@ -567,7 +627,14 @@
         function closeImageModal() {
             const modal = document.getElementById('image-modal'); const img = document.getElementById('enlarged-image');
             modal.style.opacity = '0'; img.classList.remove('animate__zoomIn');
-            setTimeout(() => { modal.style.display = 'none'; if(document.getElementById('page-choice').classList.contains('hidden')) { document.body.classList.add('no-scroll'); } }, 300);
+            setTimeout(() => { 
+                modal.style.display = 'none'; 
+                if(!document.getElementById('page-choice').classList.contains('hidden')) { 
+                    document.body.classList.add('no-scroll'); 
+                } else {
+                    document.body.classList.remove('no-scroll');
+                }
+            }, 300);
         }
 
         function openModal(id) {
@@ -577,21 +644,31 @@
             document.getElementById('modal-mbti').innerText = info.mbti;
             document.getElementById('modal-age').innerText = info.age;
             document.getElementById('modal-insta').innerText = info.insta;
+            document.getElementById('modal-email').innerText = info.email;
             document.getElementById('modal-hobby').innerText = info.hobby;
             document.getElementById('modal-desc').innerText = info.desc; 
             document.getElementById('modal-image-container').innerHTML = `<img src="${info.img}" class="w-full h-full object-cover" alt="${info.name}">`;
+            
             const modal = document.getElementById('profile-modal');
             modal.style.display = 'flex';
             setTimeout(() => modal.style.opacity = '1', 10);
+            
             document.getElementById('modal-content').classList.remove('animate__zoomIn');
             void document.getElementById('modal-content').offsetWidth;
             document.getElementById('modal-content').classList.add('animate__zoomIn');
-            document.body.classList.add('no-scroll');
+            
+            document.body.classList.remove('no-scroll');
         }
 
         function closeModal() {
-            const modal = document.getElementById('profile-modal'); modal.style.opacity = '0';
-            setTimeout(() => { modal.style.display = 'none'; if(document.getElementById('page-choice').classList.contains('hidden')) { document.body.classList.add('no-scroll'); } }, 300);
+            const modal = document.getElementById('profile-modal'); 
+            modal.style.opacity = '0';
+            setTimeout(() => { 
+                modal.style.display = 'none'; 
+                if(!document.getElementById('page-choice').classList.contains('hidden')) { 
+                    document.body.classList.add('no-scroll'); 
+                }
+            }, 300);
         }
 
         const starField = document.getElementById('star-field');
